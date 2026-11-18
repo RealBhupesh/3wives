@@ -96,7 +96,7 @@ export function EngineConsole() {
     <div className="space-y-3">
       <div className="grid gap-3 lg:grid-cols-[360px_1fr]">
         {/* Composer */}
-        <div className="rounded-lg border border-line bg-[#0a0b10]">
+        <div className="rounded-lg border border-line bg-[#ffffff]">
           <div className="flex h-10 items-center justify-between border-b border-line px-3.5">
             <span className="font-mono text-[8.5px] uppercase tracking-[0.14em] text-muted">Request composer</span>
             <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-faint">manual</span>
@@ -115,8 +115,8 @@ export function EngineConsole() {
                   className={cn(
                     "flex flex-col items-center gap-1.5 rounded-md border py-2 transition-colors",
                     wifeId === item.id
-                      ? "border-line-strong bg-white/[0.05]"
-                      : "border-line bg-transparent hover:bg-white/[0.02]",
+                      ? "border-line-strong bg-ink/[0.05]"
+                      : "border-line bg-transparent hover:bg-ink/[0.02]",
                   )}
                 >
                   <IdentityAvatar wife={item} size={24} ring={false} />
@@ -140,7 +140,7 @@ export function EngineConsole() {
                 if (status !== "running") reset();
               }}
               rows={4}
-              className="mt-2 w-full resize-none rounded-md border border-line bg-white/[0.025] p-2.5 text-[12px] leading-relaxed text-ink placeholder:text-faint focus-visible:border-line-strong focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent/40"
+              className="mt-2 w-full resize-none rounded-md border border-line bg-ink/[0.025] p-2.5 text-[12px] leading-relaxed text-ink placeholder:text-faint focus-visible:border-line-strong focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent/40"
               placeholder="Type an incoming message…"
             />
             <div className="mt-1.5 flex flex-wrap gap-1">
@@ -197,7 +197,7 @@ export function EngineConsole() {
         </div>
 
         {/* Pipeline */}
-        <div className="rounded-lg border border-line bg-[#0a0b10]">
+        <div className="rounded-lg border border-line bg-[#ffffff]">
           <div className="flex h-10 items-center justify-between border-b border-line px-3.5">
             <span className="font-mono text-[8.5px] uppercase tracking-[0.14em] text-muted">Inference pipeline</span>
             <div className="flex items-center gap-2">
@@ -227,7 +227,7 @@ export function EngineConsole() {
                       aria-current={isSelected ? "step" : undefined}
                       className={cn(
                         "relative flex w-full items-center gap-3 rounded-md px-2.5 py-2 text-left transition-colors",
-                        isSelected ? "bg-white/[0.045]" : "hover:bg-white/[0.025]",
+                        isSelected ? "bg-ink/[0.045]" : "hover:bg-ink/[0.025]",
                       )}
                     >
                       <span
@@ -237,7 +237,7 @@ export function EngineConsole() {
                             ? "border-accent/60 bg-accent/15 text-accent"
                             : isComplete
                               ? "border-green/30 bg-green/[0.08] text-green"
-                              : "border-line bg-[#0b0c12] text-faint",
+                              : "border-line bg-[#ffffff] text-faint",
                         )}
                       >
                         {isActive ? (
@@ -287,7 +287,7 @@ export function EngineConsole() {
       </div>
 
       {/* Trace log */}
-      <div className="overflow-hidden rounded-lg border border-line bg-[#08090d]">
+      <div className="overflow-hidden rounded-lg border border-line bg-[#ffffff]">
         <div className="flex h-8 items-center justify-between border-b border-line px-3.5">
           <span className="font-mono text-[8px] uppercase tracking-[0.13em] text-faint">trace.log</span>
           <span className="font-mono text-[7.5px] uppercase tracking-[0.08em] text-faint">
@@ -311,7 +311,7 @@ export function EngineConsole() {
 
       <div className="grid gap-3 lg:grid-cols-[1fr_400px]">
         {/* Inspector */}
-        <div className="rounded-lg border border-line bg-[#0a0b10] p-4">
+        <div className="rounded-lg border border-line bg-[#ffffff] p-4">
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="font-mono text-[8px] uppercase tracking-[0.13em] text-faint">Stage inspector</p>
@@ -352,7 +352,7 @@ export function EngineConsole() {
         </div>
 
         {/* Output */}
-        <div className="flex flex-col rounded-lg border border-line bg-[#0a0b10]">
+        <div className="flex flex-col rounded-lg border border-line bg-[#ffffff]">
           <div className="flex h-10 items-center justify-between border-b border-line px-3.5">
             <span className="font-mono text-[8.5px] uppercase tracking-[0.14em] text-muted">Response preview</span>
             <span className="flex items-center gap-1 font-mono text-[7.5px] uppercase tracking-[0.08em] text-faint">
@@ -364,7 +364,7 @@ export function EngineConsole() {
           <div className="flex-1 p-3.5">
             {status === "idle" && !result && (
               <div className="flex h-full min-h-[260px] flex-col items-center justify-center gap-3 rounded-md border border-dashed border-line text-center">
-                <span className="flex size-10 items-center justify-center rounded-full border border-line bg-white/[0.02]">
+                <span className="flex size-10 items-center justify-center rounded-full border border-line bg-ink/[0.02]">
                   <CircleDashed className="size-5 text-faint" />
                 </span>
                 <div>
@@ -427,7 +427,7 @@ export function EngineConsole() {
                       <p className="mono-label">Alternatives</p>
                       <div className="mt-1.5 space-y-1">
                         {result.alternatives.map((alt) => (
-                          <div key={alt.label} className="rounded border border-line bg-white/[0.015] px-2 py-1.5">
+                          <div key={alt.label} className="rounded border border-line bg-ink/[0.015] px-2 py-1.5">
                             <p className="font-mono text-[7px] uppercase tracking-[0.08em] text-faint">{alt.label}</p>
                             <p className="mt-0.5 text-[10px] leading-snug text-muted">{alt.text}</p>
                           </div>
@@ -479,7 +479,7 @@ export function EngineConsole() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 rounded-lg border border-line bg-white/[0.015] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-2 rounded-lg border border-line bg-ink/[0.015] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2">
           <Brain className="size-3.5 text-violet" />
           <span className="text-[10.5px] text-muted">

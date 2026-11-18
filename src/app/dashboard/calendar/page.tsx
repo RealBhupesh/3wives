@@ -47,15 +47,15 @@ const KIND_LABEL: Record<EventKind, string> = {
 };
 
 const KIND_CHIP: Record<WifeId, string> = {
-  sophia: "border-[#ff8fa3]/30 bg-[#ff8fa3]/[0.09] text-[#ffc3cd]",
-  olivia: "border-[#a78bfa]/30 bg-[#a78bfa]/[0.09] text-[#cec0ff]",
-  isabella: "border-[#ff4778]/30 bg-[#ff4778]/[0.09] text-[#ffa0b5]",
+  sophia: "border-[#f26b1d]/30 bg-[#f26b1d]/[0.09] text-[#c2410c]",
+  olivia: "border-[#6e56f8]/30 bg-[#6e56f8]/[0.09] text-[#5137E0]",
+  isabella: "border-[#0f9d8a]/30 bg-[#0f9d8a]/[0.09] text-[#0B7A6B]",
 };
 
 const SEVERITY_META: Record<Collision["severity"], { label: string; className: string }> = {
   critical: { label: "Critical", className: "border-red/35 bg-red/[0.07] text-red" },
   high: { label: "High", className: "border-amber/30 bg-amber/[0.07] text-amber" },
-  moderate: { label: "Moderate", className: "border-line bg-white/[0.02] text-muted" },
+  moderate: { label: "Moderate", className: "border-line bg-ink/[0.02] text-muted" },
 };
 
 function eventOnDay(event: CalendarEvent, day: Date) {
@@ -236,7 +236,7 @@ function CalendarGrid({
 
   return (
     <div className="overflow-hidden rounded-md border border-line">
-      <div className="grid grid-cols-7 border-b border-line bg-[#0a0b10]">
+      <div className="grid grid-cols-7 border-b border-line bg-[#ffffff]">
         {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((label) => (
           <div key={label} className="px-1 py-1.5 text-center font-mono text-[7.5px] uppercase tracking-[0.1em] text-faint">
             {label}
@@ -257,7 +257,7 @@ function CalendarGrid({
               onClick={() => onSelectDay(day)}
               aria-label={`Preview ${format(day, "EEEE, MMMM d")}, ${dayEvents.length} commitments`}
               className={cn(
-                "group flex min-h-[72px] flex-col items-stretch gap-1 bg-[#0a0b10] px-1 py-1 text-left transition-colors hover:bg-[#0e0f16] sm:min-h-[96px] sm:px-1.5 md:min-h-[108px]",
+                "group flex min-h-[72px] flex-col items-stretch gap-1 bg-[#ffffff] px-1 py-1 text-left transition-colors hover:bg-[#f7f8fa] sm:min-h-[96px] sm:px-1.5 md:min-h-[108px]",
                 outside && "opacity-40",
               )}
             >
@@ -266,7 +266,7 @@ function CalendarGrid({
                   className={cn(
                     "flex size-5 items-center justify-center rounded-full font-mono text-[9px] tabular-nums",
                     isToday(day)
-                      ? "bg-accent font-medium text-[#190409]"
+                      ? "bg-accent font-medium text-white"
                       : "text-muted group-hover:text-ink",
                   )}
                 >
@@ -377,7 +377,7 @@ function CalendarView() {
       />
 
       {filteredWife && (
-        <div className="flex items-center gap-2 rounded-md border border-line bg-white/[0.02] px-3 py-2">
+        <div className="flex items-center gap-2 rounded-md border border-line bg-ink/[0.02] px-3 py-2">
           <span className="size-1.5 rounded-full" style={{ background: wifeMap[filteredWife]?.palette.from }} />
           <p className="font-mono text-[8.5px] uppercase tracking-[0.08em] text-muted">
             Linked context · {wifeMap[filteredWife]?.name} · all commitments still visible
@@ -474,7 +474,7 @@ function CalendarView() {
                 <span
                   className={cn(
                     "flex size-7 items-center justify-center rounded-md border",
-                    item.danger ? "border-red/25 bg-red/[0.07]" : "border-line bg-white/[0.02]",
+                    item.danger ? "border-red/25 bg-red/[0.07]" : "border-line bg-ink/[0.02]",
                   )}
                 >
                   <item.icon className={cn("size-3.5", item.danger ? "text-red" : "text-faint")} />
@@ -523,7 +523,7 @@ function CalendarView() {
                     key={collision.id}
                     className={cn(
                       "rounded-md border p-2.5",
-                      highlighted ? "border-accent/40 bg-accent/[0.03]" : "border-line bg-white/[0.015]",
+                      highlighted ? "border-accent/40 bg-accent/[0.03]" : "border-line bg-ink/[0.015]",
                     )}
                   >
                     <div className="flex items-center gap-1.5">
@@ -600,7 +600,7 @@ function CalendarView() {
                   const wife = wifeMap[event.wifeId];
                   return (
                     <li key={event.id} className="flex items-center gap-2.5 px-3 py-2">
-                      <span className="flex w-8 shrink-0 flex-col items-center rounded border border-line bg-white/[0.02] py-1">
+                      <span className="flex w-8 shrink-0 flex-col items-center rounded border border-line bg-ink/[0.02] py-1">
                         <span className="font-mono text-[6.5px] uppercase text-faint">{format(new Date(event.start), "MMM")}</span>
                         <span className="font-mono text-[11px] leading-none tabular-nums text-ink">
                           {format(new Date(event.start), "d")}
@@ -682,7 +682,7 @@ function CalendarView() {
               {dayEvents.map((event) => {
                 const wife = wifeMap[event.wifeId];
                 return (
-                  <li key={event.id} className="rounded-md border border-line bg-white/[0.015] p-2.5">
+                  <li key={event.id} className="rounded-md border border-line bg-ink/[0.015] p-2.5">
                     <div className="flex items-start gap-2">
                       <span className="mt-1 size-2 shrink-0 rounded-full" style={{ background: wife?.palette.from }} />
                       <div className="min-w-0 flex-1">

@@ -1,27 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
 import { DemoProvider } from "@/lib/store";
 import "./globals.css";
 
-const interTight = Inter_Tight({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter-tight",
+  variable: "--font-jakarta",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const jetbrains = JetBrains_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-geist-mono",
   display: "swap",
-  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://3wives.ai"),
   title: {
-    default: "3Wives AI — Three wives. One you. Zero collisions.",
+    default: "3Wives — Relationship intelligence for complex lives",
     template: "%s — 3Wives AI",
   },
   description:
@@ -51,8 +50,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08090d",
-  colorScheme: "dark",
+  themeColor: "#ffffff",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };
@@ -61,7 +60,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${interTight.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${jakarta.variable} ${geistMono.variable}`}>
       <body className="min-h-screen bg-ground text-ink antialiased">
         <a
           href="#main"
@@ -71,13 +70,14 @@ export default function RootLayout({
         </a>
         <DemoProvider>{children}</DemoProvider>
         <Toaster
-          theme="dark"
+          theme="light"
           position="bottom-right"
           toastOptions={{
             style: {
-              background: "#12131b",
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: "#f4f4f6",
+              background: "#ffffff",
+              border: "1px solid rgba(11,13,18,0.1)",
+              boxShadow: "0 8px 24px -12px rgba(15,23,42,0.18)",
+              color: "#0b0d12",
               borderRadius: "10px",
               fontSize: "13px",
             },

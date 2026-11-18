@@ -49,7 +49,7 @@ export function IncidentDemo() {
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-80"
-        style={{ background: "radial-gradient(70% 50% at 20% 0%, rgba(255,59,78,0.10), transparent 70%)" }}
+        style={{ background: "radial-gradient(70% 50% at 20% 0%, rgba(229,56,59,0.10), transparent 70%)" }}
       />
       <div className="relative p-4">
         <div className="flex flex-wrap items-start justify-between gap-3">
@@ -58,33 +58,33 @@ export function IncidentDemo() {
               <AlertOctagon className="size-3.5 text-red" />
             </span>
             <div>
-              <p className="font-mono text-[8px] uppercase tracking-[0.12em] text-red">Severity · serious</p>
+              <p className="text-[11.5px] text-red">Severity · serious</p>
               <p className="mt-0.5 max-w-[280px] text-[12px] font-medium leading-snug">
                 Wife 02 has asked about Wife 01.
               </p>
-              <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.08em] text-faint">
+              <p className="mt-1 text-[11.5px] text-faint">
                 opened 42m ago · outbound paused
               </p>
             </div>
           </div>
           <div className="flex items-center gap-2.5">
-            <Ring value={incident.exposureRisk} size={52} stroke={3.5} color="#ff3b4e" label="Context exposure risk 94 percent">
+            <Ring value={incident.exposureRisk} size={52} stroke={3.5} color="#e5383b" label="Context exposure risk 94 percent">
               <span className="font-mono text-[10px] tabular-nums text-red">{incident.exposureRisk}%</span>
             </Ring>
             <div>
-              <p className="font-mono text-[7.5px] uppercase tracking-[0.1em] text-faint">Exposure risk</p>
-              <p className="font-mono text-[7.5px] uppercase tracking-[0.1em] text-red">Urgency high</p>
+              <p className="font-mono text-[7.5px] text-faint">Exposure risk</p>
+              <p className="font-mono text-[7.5px] text-red">Urgency high</p>
             </div>
           </div>
         </div>
 
-        <div className="mt-3 rounded-md border border-line bg-[#0b0c12] p-2.5">
+        <div className="mt-3 rounded-md border border-line bg-[#ffffff] p-2.5">
           <div className="flex items-center justify-between">
-            <span className="font-mono text-[7.5px] uppercase tracking-[0.12em] text-faint">Inbound · 20:14</span>
-            <span className="font-mono text-[7.5px] uppercase tracking-[0.1em] text-red">risk query</span>
+            <span className="font-mono text-[7.5px] text-faint">Inbound · 20:14</span>
+            <span className="font-mono text-[7.5px] text-red">risk query</span>
           </div>
           <p className="mt-1 text-[12px] text-ink">“who&apos;s jessica”</p>
-          <p className="mt-1 font-mono text-[8px] uppercase leading-relaxed tracking-[0.06em] text-faint">
+          <p className="mt-1 text-[11.5px] leading-relaxed text-faint">
             3 candidate entities · 1 cross-context match · safety check failed
           </p>
         </div>
@@ -95,7 +95,7 @@ export function IncidentDemo() {
             className={cn(
               "flex h-8 items-center gap-1.5 rounded-md border px-2.5 text-[10.5px] transition-colors",
               phase === "idle" || phase === "analyzing"
-                ? "border-white/15 bg-white/[0.05] text-ink hover:bg-white/[0.08]"
+                ? "border-ink/15 bg-ink/[0.05] text-ink hover:bg-ink/[0.08]"
                 : "border-green/25 bg-green/[0.05] text-green",
             )}
           >
@@ -122,7 +122,7 @@ export function IncidentDemo() {
               <div className="mt-3 rounded-md border border-line bg-ground/80 p-2.5">
                 <div className="flex items-center gap-1.5">
                   <ShieldAlert className="size-3 text-amber" />
-                  <span className="font-mono text-[7.5px] uppercase tracking-[0.12em] text-faint">Inference analysis</span>
+                  <span className="font-mono text-[7.5px] text-faint">Inference analysis</span>
                 </div>
                 <div className="mt-1.5 space-y-1">
                   {incident.analysis.slice(0, Math.max(visibleLines, phase === "analyzed" || phase === "drafted" ? 3 : 0)).map((line) => (
@@ -160,7 +160,7 @@ export function IncidentDemo() {
                     }}
                     className={cn(
                       "rounded-full px-1.5 py-0.5 font-mono text-[7.5px] uppercase tracking-[0.08em] transition-colors",
-                      draft === index ? "bg-white/[0.09] text-ink" : "text-faint hover:text-muted",
+                      draft === index ? "bg-ink/[0.09] text-ink" : "text-faint hover:text-muted",
                     )}
                   >
                     {index + 1}

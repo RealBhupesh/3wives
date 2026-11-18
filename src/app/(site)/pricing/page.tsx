@@ -8,7 +8,7 @@ import { FinalCta } from "@/components/marketing/final-cta";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Monogamy is free. Dual Core is $19/month. Triple Threat is $49/month. Relationship infrastructure priced per identity, with full context isolation on every plan.",
+    "Solo is free. Duo is $19/month. Trio is $49/month. Relationship infrastructure priced per identity, with full context isolation on every plan.",
 };
 
 const COMPARISON: Array<{ label: string; values: [string, string, string, string] }> = [
@@ -75,12 +75,12 @@ export default function PricingPage() {
     <div className="pt-16">
       <section className="relative overflow-hidden border-b border-line pb-14 pt-16 md:pb-20 md:pt-20">
         <div aria-hidden className="absolute inset-0 grid-bg opacity-50" />
-        <div aria-hidden className="glow-top opacity-70" />
+        <div aria-hidden className="aurora pointer-events-none absolute inset-x-0 top-0 h-[700px]" />
         <div className="container-page relative">
           <div className="max-w-[760px]">
             <div className="flex items-center gap-2">
               <span className="status-dot text-green" />
-              <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-green">Pricing · demonstration</span>
+              <span className="text-[11.5px] text-green">Pricing · demonstration</span>
             </div>
             <h1 className="heading mt-5 text-[clamp(42px,6vw,72px)]">
               Relationship infrastructure.
@@ -95,7 +95,7 @@ export default function PricingPage() {
 
           <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
             {INCLUDED.map((item) => (
-              <span key={item} className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.08em] text-faint">
+              <span key={item} className="flex items-center gap-1.5 text-[11.5px] text-faint">
                 <ShieldCheck className="size-3 text-green" />
                 {item}
               </span>
@@ -107,12 +107,12 @@ export default function PricingPage() {
       <section className="container-page py-12 md:py-16" id="plans">
         <PricingCards />
         <PricingFinePrint />
-        <p className="mt-2 font-mono text-[8px] uppercase tracking-[0.08em] text-faint">
+        <p className="mt-2 text-[11.5px] text-faint">
           *Unlimited vectors subject to fair use. An average three-relationship deployment holds 2,400–4,000 vectors.
         </p>
       </section>
 
-      <section className="border-y border-line bg-[#0a0b10] py-16 md:py-20">
+      <section className="border-y border-line bg-[#ffffff] py-16 md:py-20">
         <div className="container-page">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
@@ -128,11 +128,11 @@ export default function PricingPage() {
             <table className="w-full min-w-[720px] border-collapse text-left">
               <caption className="sr-only">Plan comparison</caption>
               <thead>
-                <tr className="border-b border-line bg-white/[0.02]">
-                  <th scope="col" className="px-4 py-3 font-mono text-[8px] uppercase tracking-[0.12em] text-faint">
+                <tr className="border-b border-line bg-ink/[0.02]">
+                  <th scope="col" className="px-4 py-3 text-[11.5px] text-faint">
                     Capability
                   </th>
-                  {["Monogamy", "Dual Core", "Triple Threat", "Enterprise"].map((plan, index) => (
+                  {["Solo", "Duo", "Trio", "Enterprise"].map((plan, index) => (
                     <th
                       key={plan}
                       scope="col"
@@ -145,7 +145,7 @@ export default function PricingPage() {
               </thead>
               <tbody>
                 {COMPARISON.map((row) => (
-                  <tr key={row.label} className="border-b border-line last:border-0 hover:bg-white/[0.015]">
+                  <tr key={row.label} className="border-b border-line last:border-0 hover:bg-ink/[0.015]">
                     <th scope="row" className="px-4 py-3 text-[11.5px] font-normal text-muted">
                       {row.label}
                     </th>
@@ -185,7 +185,7 @@ export default function PricingPage() {
             </p>
             <Link
               href="/dashboard/incidents"
-              className="mt-5 inline-flex items-center gap-1.5 border-b border-line pb-1 font-mono text-[9px] uppercase tracking-[0.1em] text-muted transition-colors hover:border-line-strong hover:text-ink"
+              className="mt-5 inline-flex items-center gap-1.5 border-b border-line pb-1 text-[11.5px] text-muted transition-colors hover:border-line-strong hover:text-ink"
             >
               Open incident center
               <ArrowRight className="size-3" />

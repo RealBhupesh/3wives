@@ -138,9 +138,9 @@ export default function CommandCenterPage() {
 
   const stabilitySeries = useMemo(
     () => [
-      { key: "sophia", label: "Sophia", color: "#ff8fa3", values: state.analytics.stability.map((point) => point.sophia) },
-      { key: "olivia", label: "Olivia", color: "#a78bfa", values: state.analytics.stability.map((point) => point.olivia) },
-      { key: "isabella", label: "Isabella", color: "#ff4778", values: state.analytics.stability.map((point) => point.isabella) },
+      { key: "sophia", label: "Sophia", color: "#f26b1d", values: state.analytics.stability.map((point) => point.sophia) },
+      { key: "olivia", label: "Olivia", color: "#6e56f8", values: state.analytics.stability.map((point) => point.olivia) },
+      { key: "isabella", label: "Isabella", color: "#0f9d8a", values: state.analytics.stability.map((point) => point.isabella) },
     ],
     [state.analytics.stability],
   );
@@ -220,11 +220,11 @@ export default function CommandCenterPage() {
           },
           { label: "p50 inference", value: `${p50}ms`, detail: "target 400ms", tone: "ok" as const, icon: Zap },
         ].map((item) => (
-          <div key={item.label} className="flex items-center gap-3 bg-[#0a0b10] px-4 py-3">
+          <div key={item.label} className="flex items-center gap-3 bg-[#ffffff] px-4 py-3">
             <span
               className={cn(
                 "flex size-7 shrink-0 items-center justify-center rounded-md border",
-                item.tone === "danger" ? "border-red/25 bg-red/[0.07]" : "border-line bg-white/[0.02]",
+                item.tone === "danger" ? "border-red/25 bg-red/[0.07]" : "border-line bg-ink/[0.02]",
               )}
             >
               <item.icon className={cn("size-3.5", item.tone === "danger" ? "text-red" : "text-green")} />
@@ -310,7 +310,7 @@ export default function CommandCenterPage() {
             segments={state.analytics.attention.map((item) => ({
               label: wifeMap[item.wifeId]?.name ?? item.wifeId,
               value: item.value,
-              color: wifeMap[item.wifeId]?.palette.from ?? "#ff4778",
+              color: wifeMap[item.wifeId]?.palette.from ?? "#0f9d8a",
             }))}
           />
           <div className="w-full space-y-2">
@@ -327,7 +327,7 @@ export default function CommandCenterPage() {
                       {item.value}% · {((item.value / 100) * 18.4).toFixed(1)}h
                     </span>
                   </div>
-                  <div className="mt-1 h-[3px] overflow-hidden rounded-full bg-white/[0.06]">
+                  <div className="mt-1 h-[3px] overflow-hidden rounded-full bg-ink/[0.06]">
                     <div
                       className="h-full rounded-full transition-all duration-700"
                       style={{ width: `${item.value}%`, background: wife?.palette.from }}
@@ -377,12 +377,12 @@ export default function CommandCenterPage() {
                       </span>
                     </span>
                   </div>
-                  <div className="mt-1.5 h-[5px] overflow-hidden rounded-full bg-white/[0.06]">
+                  <div className="mt-1.5 h-[5px] overflow-hidden rounded-full bg-ink/[0.06]">
                     <div
                       className="h-full rounded-full transition-all duration-700"
                       style={{
                         width: `${item.value}%`,
-                        background: high ? "#ff3b4e" : item.value >= 25 ? "#f5b544" : "#3ddc97",
+                        background: high ? "#e5383b" : item.value >= 25 ? "#d98a00" : "#12a26b",
                       }}
                     />
                   </div>
@@ -406,7 +406,7 @@ export default function CommandCenterPage() {
           action={<StatusChip label="Nominal" />}
         >
           <div className="flex items-center gap-4">
-            <Ring value={Math.max(state.analytics.leakage, 0.4)} size={94} stroke={6} color="#3ddc97" label="Context leakage risk 0.4 percent">
+            <Ring value={Math.max(state.analytics.leakage, 0.4)} size={94} stroke={6} color="#12a26b" label="Context leakage risk 0.4 percent">
               <span className="font-mono text-[17px] tabular-nums tracking-[-0.04em] text-green">{state.analytics.leakage}%</span>
               <span className="font-mono text-[7px] uppercase tracking-[0.1em] text-faint">risk</span>
             </Ring>
@@ -458,10 +458,10 @@ export default function CommandCenterPage() {
                     </span>
                     <span className="tabular-nums text-faint">{item.value}%</span>
                   </div>
-                  <div className="mt-1 h-[3px] rounded-full bg-white/[0.06]">
+                  <div className="mt-1 h-[3px] rounded-full bg-ink/[0.06]">
                     <div
                       className="h-full rounded-full"
-                      style={{ width: `${item.value}%`, background: item.value < 70 ? "#f5b544" : wife?.palette.from }}
+                      style={{ width: `${item.value}%`, background: item.value < 70 ? "#d98a00" : wife?.palette.from }}
                     />
                   </div>
                 </div>
@@ -512,8 +512,8 @@ export default function CommandCenterPage() {
                   (item) => item.eventA === event.id || item.eventB === event.id,
                 );
                 return (
-                  <li key={event.id} className="flex items-center gap-3 px-4 py-2.5 transition-colors hover:bg-white/[0.015]">
-                    <div className="flex w-9 shrink-0 flex-col items-center rounded border border-line bg-white/[0.02] py-1">
+                  <li key={event.id} className="flex items-center gap-3 px-4 py-2.5 transition-colors hover:bg-ink/[0.015]">
+                    <div className="flex w-9 shrink-0 flex-col items-center rounded border border-line bg-ink/[0.02] py-1">
                       <span className="font-mono text-[7px] uppercase tracking-[0.08em] text-faint">{format(date, "MMM")}</span>
                       <span className="font-mono text-[13px] leading-none tabular-nums text-ink">{format(date, "d")}</span>
                     </div>
@@ -545,9 +545,9 @@ export default function CommandCenterPage() {
           <GroupedBars
             labels={state.giftHistory.map((point) => point.month)}
             series={[
-              { key: "sophia", label: "Sophia", color: "#ff8fa3", values: state.giftHistory.map((point) => point.sophia) },
-              { key: "olivia", label: "Olivia", color: "#a78bfa", values: state.giftHistory.map((point) => point.olivia) },
-              { key: "isabella", label: "Isabella", color: "#ff4778", values: state.giftHistory.map((point) => point.isabella) },
+              { key: "sophia", label: "Sophia", color: "#f26b1d", values: state.giftHistory.map((point) => point.sophia) },
+              { key: "olivia", label: "Olivia", color: "#6e56f8", values: state.giftHistory.map((point) => point.olivia) },
+              { key: "isabella", label: "Isabella", color: "#0f9d8a", values: state.giftHistory.map((point) => point.isabella) },
             ]}
           />
           <div className="mt-3 grid grid-cols-4 gap-px overflow-hidden rounded border border-line bg-line">
@@ -557,7 +557,7 @@ export default function CommandCenterPage() {
               { label: "Olivia", value: formatCurrency(giftTotals.olivia) },
               { label: "Isabella", value: formatCurrency(giftTotals.isabella) },
             ].map((item) => (
-              <div key={item.label} className="bg-[#0b0c12] px-2 py-1.5">
+              <div key={item.label} className="bg-[#ffffff] px-2 py-1.5">
                 <p className="font-mono text-[7px] uppercase tracking-[0.06em] text-faint">{item.label}</p>
                 <p className="mt-0.5 font-mono text-[9.5px] tabular-nums text-ink">{item.value}</p>
               </div>
@@ -631,7 +631,7 @@ export default function CommandCenterPage() {
                 <span
                   className={cn(
                     "mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full border",
-                    positive ? "border-green/25 bg-green/[0.06]" : "border-line bg-white/[0.02]",
+                    positive ? "border-green/25 bg-green/[0.06]" : "border-line bg-ink/[0.02]",
                   )}
                 >
                   {positive ? <ShieldCheck className="size-2.5 text-green" /> : <BellRing className="size-2.5 text-faint" />}
@@ -643,7 +643,7 @@ export default function CommandCenterPage() {
               </li>
             ))}
           </ul>
-          <div className="mt-3 flex items-center justify-between rounded border border-line bg-white/[0.015] px-2.5 py-1.5">
+          <div className="mt-3 flex items-center justify-between rounded border border-line bg-ink/[0.015] px-2.5 py-1.5">
             <span className="font-mono text-[8px] uppercase tracking-[0.08em] text-faint">model</span>
             <span className="font-mono text-[8.5px] text-muted">voice.twin.v6</span>
           </div>

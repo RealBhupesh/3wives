@@ -51,7 +51,7 @@ function MessageBubble({ message, wifeName }: { message: Message; wifeName: stri
   if (message.role === "system") {
     return (
       <div className="flex justify-center py-1">
-        <span className="rounded-full border border-line bg-white/[0.02] px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.1em] text-faint">
+        <span className="rounded-full border border-line bg-ink/[0.02] px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.1em] text-faint">
           {message.text}
         </span>
       </div>
@@ -63,7 +63,7 @@ function MessageBubble({ message, wifeName }: { message: Message; wifeName: stri
     <div className={cn("flex items-end gap-2", mine && "flex-row-reverse")}>
       {!mine && (
         <span
-          className="mb-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-white/[0.06] font-mono text-[7px] text-ink"
+          className="mb-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-ink/[0.06] font-mono text-[7px] text-ink"
           aria-hidden
         >
           {wifeName.slice(0, 1)}
@@ -75,7 +75,7 @@ function MessageBubble({ message, wifeName }: { message: Message; wifeName: stri
             "rounded-lg border px-3 py-2 text-left text-[12px] leading-relaxed",
             mine
               ? "rounded-br-sm border-accent/20 bg-accent/[0.08] text-ink"
-              : "rounded-bl-sm border-line bg-[#0c0d13] text-ink/90",
+              : "rounded-bl-sm border-line bg-[#ffffff] text-ink/90",
           )}
         >
           {message.text}
@@ -113,7 +113,7 @@ function ThreadRail({ selected, onSelect }: { selected: WifeId; onSelect: (id: W
               aria-pressed={active}
               className={cn(
                 "flex w-full items-start gap-2.5 rounded-md px-2 py-2 text-left transition-colors",
-                active ? "bg-white/[0.055]" : "hover:bg-white/[0.025]",
+                active ? "bg-ink/[0.055]" : "hover:bg-ink/[0.025]",
               )}
             >
               <IdentityAvatar wife={wife} size={32} />
@@ -202,7 +202,7 @@ function SimulatorPanel({
     >
       {phase === "idle" && (
         <>
-          <div className="rounded border border-line bg-white/[0.018] p-3">
+          <div className="rounded border border-line bg-ink/[0.018] p-3">
             <p className="flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.1em] text-violet">
               <Wand2 className="size-3" />
               voice.twin.v6
@@ -221,7 +221,7 @@ function SimulatorPanel({
                   key={prompt}
                   type="button"
                   onClick={() => onUsePrompt(prompt)}
-                  className="flex w-full items-center justify-between gap-2 rounded border border-line bg-white/[0.015] px-2.5 py-1.5 text-left text-[10.5px] text-muted transition-colors hover:border-line-strong hover:text-ink"
+                  className="flex w-full items-center justify-between gap-2 rounded border border-line bg-ink/[0.015] px-2.5 py-1.5 text-left text-[10.5px] text-muted transition-colors hover:border-line-strong hover:text-ink"
                 >
                   <span className="truncate">“{prompt}”</span>
                   <ArrowUpRight className="size-3 shrink-0 text-faint" />
@@ -289,8 +289,8 @@ function SimulatorPanel({
             <p className="mt-2.5 text-[13.5px] leading-relaxed text-ink">“{selectedText || result.text}”</p>
           </div>
 
-          <div className="flex items-center gap-3 rounded border border-line bg-white/[0.015] p-2.5">
-            <Ring value={result.confidence} size={58} stroke={5} color="#ff4778" label={`Confidence ${result.confidence} percent`}>
+          <div className="flex items-center gap-3 rounded border border-line bg-ink/[0.015] p-2.5">
+            <Ring value={result.confidence} size={58} stroke={5} color="#0f9d8a" label={`Confidence ${result.confidence} percent`}>
               <span className="font-mono text-[13px] tabular-nums text-ink">{result.confidence}%</span>
             </Ring>
             <dl className="grid flex-1 grid-cols-2 gap-x-3 gap-y-1.5">
@@ -358,7 +358,7 @@ function SimulatorPanel({
                     aria-pressed={active}
                     className={cn(
                       "w-full rounded border px-2.5 py-2 text-left transition-colors",
-                      active ? "border-accent/30 bg-accent/[0.05]" : "border-line bg-white/[0.015] hover:border-line-strong",
+                      active ? "border-accent/30 bg-accent/[0.05]" : "border-line bg-ink/[0.015] hover:border-line-strong",
                     )}
                   >
                     <span className={cn("font-mono text-[7.5px] uppercase tracking-[0.08em]", active ? "text-accent" : "text-faint")}>
@@ -585,8 +585,8 @@ function ConversationsView() {
               )}
             </div>
 
-            <div className="border-t border-line bg-[#0a0b10] p-2.5">
-              <div className="rounded-md border border-line bg-white/[0.02] focus-within:border-line-strong">
+            <div className="border-t border-line bg-[#ffffff] p-2.5">
+              <div className="rounded-md border border-line bg-ink/[0.02] focus-within:border-line-strong">
                 <Textarea
                   ref={textareaRef}
                   value={input}
@@ -651,7 +651,7 @@ function ConversationsView() {
                   value: `${state.analytics.coverage.find((item) => item.wifeId === wife.id)?.value ?? 0}%`,
                 },
               ].map((item) => (
-                <div key={item.label} className="bg-[#0b0c12] px-2.5 py-2">
+                <div key={item.label} className="bg-[#ffffff] px-2.5 py-2">
                   <p className="font-mono text-[7px] uppercase tracking-[0.06em] text-faint">{item.label}</p>
                   <p className="font-mono text-[11px] tabular-nums text-ink">{item.value}</p>
                 </div>

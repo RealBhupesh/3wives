@@ -1,4 +1,6 @@
 import { Hero } from "@/components/marketing/hero";
+import { LogoCloud } from "@/components/marketing/logo-cloud";
+import { Testimonials } from "@/components/marketing/testimonials";
 import { TrustMetrics } from "@/components/marketing/trust-metrics";
 import { FeaturesSection } from "@/components/marketing/features-section";
 import { DashboardPreview } from "@/components/marketing/dashboard-preview";
@@ -11,11 +13,13 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <LogoCloud />
       <TrustMetrics />
       <FeaturesSection />
       <DashboardPreview />
       <EngineTeaser />
       <SecuritySection />
+      <Testimonials />
       <PricingPreview />
       <FinalCta />
     </>

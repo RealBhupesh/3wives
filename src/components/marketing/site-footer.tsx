@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { LogoMark } from "@/components/brand/logo";
-import { OperationalDot } from "@/components/brand/status";
 
 const COLUMNS = [
   {
@@ -34,9 +33,9 @@ const COLUMNS = [
   {
     title: "Pricing",
     links: [
-      { label: "Monogamy", href: "/pricing#monogamy" },
-      { label: "Dual Core", href: "/pricing#dual" },
-      { label: "Triple Threat", href: "/pricing#triple" },
+      { label: "Solo", href: "/pricing#monogamy" },
+      { label: "Duo", href: "/pricing#dual" },
+      { label: "Trio", href: "/pricing#triple" },
       { label: "Enterprise", href: "/pricing#enterprise" },
     ],
   },
@@ -45,27 +44,19 @@ const COLUMNS = [
 export function SiteFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-line bg-ground">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-64 left-1/2 h-[420px] w-[900px] -translate-x-1/2 rounded-full opacity-40 blur-[120px]"
-        style={{ background: "radial-gradient(circle, rgba(255,71,120,0.18), transparent 70%)" }}
-      />
       <div className="container-page relative">
         <div className="grid gap-12 py-16 lg:grid-cols-[1.4fr_2fr] lg:py-20">
           <div>
-            <div className="flex items-center gap-2.5">
-              <LogoMark />
-              <span className="text-[17px] font-semibold tracking-[-0.03em]">3Wives AI</span>
-            </div>
-            <p className="mt-6 max-w-[330px] text-[22px] leading-[1.25] tracking-[-0.02em] text-ink">
+            <LogoMark />
+            <p className="heading mt-6 max-w-[330px] text-[26px] leading-[1.1] text-ink">
               Love is complicated.
               <br />
               <span className="text-muted">Infrastructure shouldn&apos;t be.</span>
             </p>
             <div className="mt-8">
-              <OperationalDot label="All 3 relationships operational" />
+              <span className="inline-flex items-center gap-2 text-[13px] text-muted"><span className="status-dot text-green" />All systems operational</span>
             </div>
-            <p className="mt-3 font-mono text-[9.5px] uppercase leading-relaxed tracking-[0.12em] text-faint">
+            <p className="mt-3 text-[11.5px] leading-relaxed text-faint">
               Uptime 99.99% · p50 latency 286ms
               <br />
               Namespaces 3 · Cross-context reads 0
@@ -93,12 +84,18 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-line py-6 sm:flex-row sm:items-center sm:justify-between">
+        <p
+          aria-hidden
+          className="display -mb-[0.2em] select-none text-center text-[clamp(96px,27vw,400px)] leading-[0.8] text-ink/[0.06]"
+        >
+          3wives
+        </p>
+        <div className="relative flex flex-col gap-4 border-t border-line bg-white py-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[11px] text-faint">
             © 2026 3Wives AI, Inc. A demonstration environment. Fictional profiles, conversations
             and calendars. No external messaging integrations, no messages are sent.
           </p>
-          <div className="flex items-center gap-5 font-mono text-[9.5px] uppercase tracking-[0.12em] text-faint">
+          <div className="flex items-center gap-5 text-[11.5px] text-faint">
             <Link href="/pricing" className="transition-colors hover:text-ink">
               Terms
             </Link>

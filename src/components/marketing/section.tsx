@@ -18,17 +18,24 @@ export function SectionHeading({
 }) {
   return (
     <div className={cn("flex flex-col gap-6 md:flex-row md:items-end md:justify-between", className)}>
-      <div className="max-w-[680px]">
-        {kicker && <p className="mono-label mb-4">{kicker}</p>}
-        <Tag className="heading text-[clamp(32px,4.2vw,52px)]">{title}</Tag>
+      <div className="max-w-[820px]">
+        {kicker && <p className="mono-label mb-5"><span className="triad" aria-hidden><i /><i /><i /></span>{kicker}</p>}
+        <Tag className="heading text-[clamp(38px,5.4vw,72px)]">{title}</Tag>
         {description && (
-          <p className="mt-5 max-w-[560px] text-[15px] leading-[1.7] text-muted">{description}</p>
+          <p className="mt-6 max-w-[560px] text-[17px] leading-[1.6] text-muted">{description}</p>
         )}
       </div>
       {action && <div className="shrink-0">{action}</div>}
     </div>
   );
 }
+
+const TONE_DOT = {
+  sophia: "bg-[#f26b1d]",
+  olivia: "bg-[#6e56f8]",
+  isabella: "bg-[#0f9d8a]",
+  danger: "bg-red",
+} as const;
 
 export function FeatureFrame({
   id,
@@ -39,7 +46,9 @@ export function FeatureFrame({
   children,
   reverse = false,
   link,
+  tone = "olivia",
 }: {
+  tone?: "sophia" | "olivia" | "isabella" | "danger";
   id?: string;
   kicker: string;
   title: string;
@@ -50,17 +59,19 @@ export function FeatureFrame({
   link?: { href: string; label: string };
 }) {
   return (
-    <section id={id} className="scroll-mt-24 border-t border-line py-16 md:py-24">
+    <section id={id} className="scroll-mt-24 py-14 md:py-20">
       <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
         <div className={cn("lg:col-span-5", reverse && "lg:order-2")}>
           <p className="mono-label">{kicker}</p>
-          <h3 className="heading mt-4 text-[clamp(28px,3vw,38px)]">{title}</h3>
-          <p className="mt-4 max-w-[440px] text-[14.5px] leading-[1.7] text-muted">{description}</p>
+          <h3 className="heading mt-5 text-[clamp(32px,3.6vw,48px)]">{title}</h3>
+          <p className="mt-5 max-w-[460px] text-[16px] leading-[1.65] text-muted">{description}</p>
           {bullets && (
             <ul className="mt-6 space-y-2.5">
               {bullets.map((bullet) => (
-                <li key={bullet} className="flex items-start gap-2.5 text-[13px] leading-relaxed text-ink/80">
-                  <span className="mt-[7px] size-1 shrink-0 rounded-full bg-accent" />
+                <li key={bullet} className="flex items-start gap-2.5 text-[14.5px] leading-relaxed text-ink/80">
+                  <span className={cn("mt-[3px] flex size-5 shrink-0 items-center justify-center rounded-full text-white", TONE_DOT[tone])}>
+                    <svg viewBox="0 0 12 12" className="size-3" aria-hidden><path d="M2.5 6.2 5 8.5 9.5 3.8" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </span>
                   {bullet}
                 </li>
               ))}
@@ -69,14 +80,18 @@ export function FeatureFrame({
           {link && (
             <a
               href={link.href}
-              className="mt-7 inline-flex items-center gap-1.5 border-b border-accent/30 pb-1 font-mono text-[10px] uppercase tracking-[0.13em] text-accent transition-colors hover:border-accent hover:text-ink"
+              className="mt-7 inline-flex items-center gap-1.5 border-b border-ink/25 pb-0.5 text-[14px] font-medium text-ink transition-colors hover:border-ink"
             >
               {link.label}
               <span aria-hidden>↗</span>
             </a>
           )}
         </div>
-        <div className={cn("lg:col-span-7", reverse && "lg:order-1")}>{children}</div>
+        <div className={cn("lg:col-span-7", reverse && "lg:order-1")}>
+          <div className={cn("stage", `stage-${tone}`)}>
+            <div className="relative shadow-[0_24px_60px_-28px_rgba(30,20,90,0.35)]">{children}</div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -98,7 +113,7 @@ export function DemoShell({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-lg border bg-[#0a0b10]",
+        "relative overflow-hidden rounded-lg border bg-[#ffffff]",
         tone === "danger" ? "border-red/25" : tone === "accent" ? "border-accent/20" : "border-line",
         className,
       )}
@@ -111,9 +126,9 @@ export function DemoShell({
               tone === "danger" ? "bg-red" : tone === "accent" ? "bg-accent" : "bg-green",
             )}
           />
-          <span className="font-mono text-[8.5px] uppercase tracking-[0.15em] text-muted">{label}</span>
+          <span className="text-[11.5px] text-muted">{label}</span>
         </div>
-        <div className="font-mono text-[8.5px] uppercase tracking-[0.12em] text-faint">{meta}</div>
+        <div className="text-[11.5px] text-faint">{meta}</div>
       </div>
       {children}
     </div>

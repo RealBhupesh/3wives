@@ -5,13 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
+import { AnnouncementBar } from "./announcement-bar";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { href: "/#product", label: "Platform" },
-  { href: "/engine", label: "Inference Engine" },
+  { href: "/#product", label: "Product" },
+  { href: "/engine", label: "Engine" },
+  { href: "/#customers", label: "Customers" },
   { href: "/pricing", label: "Pricing" },
 ];
 
@@ -30,14 +32,22 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-40 transition-colors duration-300",
-        scrolled ? "border-b border-line bg-ground/85 backdrop-blur-xl" : "border-b border-transparent",
+        "fixed inset-x-0 top-0 z-40 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+        scrolled && "-translate-y-9",
       )}
     >
-      <div className="container-page flex h-16 items-center justify-between gap-6">
-        <div className="flex items-center gap-8">
+      <AnnouncementBar />
+      <div
+        className={cn(
+          "transition-colors duration-300",
+          scrolled ? "border-b border-line bg-white/80 backdrop-blur-xl" : "border-b border-transparent",
+        )}
+      >
+      <div className="container-page grid h-16 grid-cols-[1fr_auto] items-center gap-6 md:grid-cols-[1fr_auto_1fr]">
+        <div className="flex items-center">
           <Logo />
-          <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+        </div>
+        <nav aria-label="Primary" className="hidden items-center gap-0.5 rounded-full border border-line bg-white/70 p-1 md:flex">
             {LINKS.map((link) => {
               const active = link.href === "/pricing" ? pathname === "/pricing" : link.href === "/engine" ? pathname === "/engine" : false;
               return (
@@ -45,8 +55,8 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "rounded-md px-3 py-1.5 text-[13px] transition-colors",
-                    active ? "text-ink" : "text-muted hover:text-ink",
+                    "rounded-full px-3.5 py-1.5 text-[13.5px] transition-colors",
+                    active ? "bg-ink text-white" : "text-muted hover:bg-ink/[0.05] hover:text-ink",
                   )}
                 >
                   {link.label}
@@ -54,23 +64,22 @@ export function SiteHeader() {
               );
             })}
           </nav>
-        </div>
 
-        <div className="hidden items-center gap-2 md:flex">
-          <Button asChild variant="ghost" size="sm">
-            <Link href="/dashboard">Command Center</Link>
+        <div className="hidden items-center justify-end gap-2 md:flex">
+          <Button asChild variant="ghost" size="sm" className="rounded-full text-[13.5px]">
+            <Link href="/dashboard">Sign in</Link>
           </Button>
-          <Button asChild variant="accent" size="sm">
+          <Button asChild size="sm" className="h-9 rounded-full px-4 text-[13.5px]">
             <Link href="/pricing">
-              Initialize your empire
+              Get 3Wives
               <ArrowUpRight />
             </Link>
           </Button>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <Button asChild variant="accent" size="sm">
-            <Link href="/dashboard">Dashboard</Link>
+          <Button asChild size="sm" className="rounded-full">
+            <Link href="/dashboard">Demo</Link>
           </Button>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -86,7 +95,7 @@ export function SiteHeader() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="flex items-center justify-between rounded-md px-3 py-3 text-[15px] text-muted transition-colors hover:bg-white/5 hover:text-ink"
+                    className="flex items-center justify-between rounded-md px-3 py-3 text-[15px] text-muted transition-colors hover:bg-ink/5 hover:text-ink"
                   >
                     {link.label}
                     <ArrowUpRight className="size-4" />
@@ -95,7 +104,7 @@ export function SiteHeader() {
                 <Link
                   href="/dashboard"
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-between rounded-md px-3 py-3 text-[15px] text-muted transition-colors hover:bg-white/5 hover:text-ink"
+                  className="flex items-center justify-between rounded-md px-3 py-3 text-[15px] text-muted transition-colors hover:bg-ink/5 hover:text-ink"
                 >
                   Command Center
                   <ArrowUpRight className="size-4" />
@@ -104,16 +113,17 @@ export function SiteHeader() {
               <div className="mt-auto border-t border-line pt-4">
                 <Button asChild variant="accent" className="w-full">
                   <Link href="/pricing" onClick={() => setOpen(false)}>
-                    Initialize your empire
+                    Get 3Wives
                   </Link>
                 </Button>
-                <p className="mt-3 text-center font-mono text-[9px] uppercase tracking-[0.14em] text-faint">
+                <p className="mt-3 text-center text-[11.5px] text-faint">
                   3 relationships · 1 identity
                 </p>
               </div>
             </SheetContent>
           </Sheet>
         </div>
+      </div>
       </div>
     </header>
   );

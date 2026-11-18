@@ -21,7 +21,7 @@ const Switch = React.forwardRef<
   >
     <SwitchPrimitive.Thumb
       className={cn(
-        "pointer-events-none block size-[14px] rounded-full bg-ink shadow transition-transform data-[state=checked]:translate-x-[18px] data-[state=unchecked]:translate-x-[2px] data-[state=checked]:bg-[#1a050b]",
+        "pointer-events-none block size-[14px] rounded-full bg-white shadow-[0_1px_2px_rgba(15,23,42,0.25)] transition-transform data-[state=checked]:translate-x-[18px] data-[state=unchecked]:translate-x-[2px]",
       )}
     />
   </SwitchPrimitive.Root>
@@ -37,7 +37,7 @@ const Slider = React.forwardRef<
     className={cn("relative flex w-full touch-none select-none items-center", className)}
     {...props}
   >
-    <SliderPrimitive.Track className="relative h-[3px] w-full grow overflow-hidden rounded-full bg-white/10">
+    <SliderPrimitive.Track className="relative h-[3px] w-full grow overflow-hidden rounded-full bg-ink/10">
       <SliderPrimitive.Range className="absolute h-full bg-accent" />
     </SliderPrimitive.Track>
     <SliderPrimitive.Thumb className="block size-[13px] rounded-full border border-accent/60 bg-ink transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-ground disabled:pointer-events-none disabled:opacity-50" />
@@ -51,7 +51,7 @@ const Progress = React.forwardRef<
 >(({ className, value, indicatorClassName, ...props }, ref) => (
   <ProgressPrimitive.Root
     ref={ref}
-    className={cn("relative h-1.5 w-full overflow-hidden rounded-full bg-white/[0.07]", className)}
+    className={cn("relative h-1.5 w-full overflow-hidden rounded-full bg-ink/[0.07]", className)}
     {...props}
   >
     <ProgressPrimitive.Indicator

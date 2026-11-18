@@ -22,9 +22,9 @@ function at(now: Date, offsetDays: number, hours: number, minutes = 0) {
 }
 
 export const WIFE_ACCENTS: Record<string, string> = {
-  sophia: "#ff8fa3",
-  olivia: "#a78bfa",
-  isabella: "#ff4778",
+  sophia: "#f26b1d",
+  olivia: "#6e56f8",
+  isabella: "#0f9d8a",
 };
 
 export function createWives(now = new Date()): Wife[] {
@@ -55,7 +55,7 @@ export function createWives(now = new Date()): Wife[] {
       budget: 600,
       anniversary: iso(addDays(base, 14)),
       birthday: iso(addDays(base, 138)),
-      palette: { from: "#ff8fa3", to: "#b06ab3" },
+      palette: { from: "#f26b1d", to: "#ffb347" },
       tagline: "The one who notices everything.",
       voice: "Full sentences. Dry humor. Warmth delivered as observation, not declaration.",
     },
@@ -84,7 +84,7 @@ export function createWives(now = new Date()): Wife[] {
       budget: 550,
       anniversary: iso(addDays(base, 76)),
       birthday: iso(addDays(base, 8)),
-      palette: { from: "#a78bfa", to: "#5b8def" },
+      palette: { from: "#6e56f8", to: "#a99bff" },
       tagline: "The one who keeps you honest.",
       voice: "Lowercase. Short lines. Emoji when amused. Follows a joke with a real question.",
     },
@@ -113,7 +113,7 @@ export function createWives(now = new Date()): Wife[] {
       budget: 650,
       anniversary: iso(addDays(base, 41)),
       birthday: iso(addDays(base, 205)),
-      palette: { from: "#ff4778", to: "#8c2f39" },
+      palette: { from: "#0f9d8a", to: "#4fd1b5" },
       tagline: "The one who tells the truth.",
       voice: "Direct. Intimate. Occasional Spanish. Asks the question underneath the question.",
     },

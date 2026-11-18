@@ -34,18 +34,18 @@ export function IsolationDemo() {
   };
 
   return (
-    <DemoShell label="Context isolation engine" meta="3 NAMESPACES · 0 SHARED" className="bg-[#090a0f]">
+    <DemoShell label="Context isolation engine" meta="3 NAMESPACES · 0 SHARED" className="bg-[#ffffff]">
       <div className="p-4 md:p-5">
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-2 rounded-md border border-line-strong bg-surface-2 px-3 py-2">
-            <span className="flex size-6 items-center justify-center rounded-[4px] border border-white/10 bg-white/[0.03]">
+            <span className="flex size-6 items-center justify-center rounded-[4px] border border-ink/10 bg-ink/[0.03]">
               <ShieldCheck className="size-3.5 text-green" />
             </span>
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.13em] text-ink">Inference Router</p>
-              <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-faint">identity → namespace</p>
+              <p className="text-[11.5px] text-ink">Inference Router</p>
+              <p className="text-[11.5px] text-faint">identity → namespace</p>
             </div>
-            <span className="ml-2 flex items-center gap-1 rounded-full bg-green/10 px-1.5 py-0.5 font-mono text-[7.5px] uppercase tracking-[0.1em] text-green">
+            <span className="ml-2 flex items-center gap-1 rounded-full bg-green/10 px-1.5 py-0.5 font-mono text-[7.5px] text-green">
               <span className="size-1 rounded-full bg-green" />
               enforced
             </span>
@@ -68,8 +68,8 @@ export function IsolationDemo() {
                   className={cn(
                     "group relative flex flex-col items-start rounded-md border p-2.5 text-left transition-all duration-300",
                     isActive
-                      ? "border-white/20 bg-white/[0.05]"
-                      : "border-line bg-white/[0.015] hover:border-line-strong hover:bg-white/[0.03]",
+                      ? "border-ink/20 bg-ink/[0.05]"
+                      : "border-line bg-ink/[0.015] hover:border-line-strong hover:bg-ink/[0.03]",
                   )}
                 >
                   <span
@@ -77,13 +77,13 @@ export function IsolationDemo() {
                     style={{ background: item.palette.from, opacity: isActive ? 0.9 : 0.2 }}
                   />
                   <div className="flex w-full items-center justify-between gap-1">
-                    <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-faint">{item.code}</span>
+                    <span className="text-[11.5px] text-faint">{item.code}</span>
                     <Lock className={cn("size-2.5", isActive ? "text-green" : "text-faint")} />
                   </div>
                   <span className="mt-1 truncate font-mono text-[9px] tracking-[-0.02em] text-ink">
                     ns.{item.id}.v2
                   </span>
-                  <span className="mt-1 font-mono text-[7.5px] uppercase tracking-[0.06em] text-faint">
+                  <span className="mt-1 font-mono text-[7.5px] text-faint">
                     {count.toLocaleString()} vectors
                   </span>
                 </button>
@@ -92,15 +92,15 @@ export function IsolationDemo() {
           </div>
         </div>
 
-        <div className="mt-4 rounded-md border border-line bg-white/[0.018] p-3">
+        <div className="mt-4 rounded-md border border-line bg-ink/[0.018] p-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5">
               <Database className="size-3 text-green" />
-              <span className="font-mono text-[8px] uppercase tracking-[0.12em] text-green">
+              <span className="text-[11.5px] text-green">
                 Access granted · read
               </span>
             </div>
-            <span className="font-mono text-[8px] uppercase tracking-[0.08em] text-faint">
+            <span className="text-[11.5px] text-faint">
               last write 12m ago · us-east-1
             </span>
           </div>
@@ -113,7 +113,7 @@ export function IsolationDemo() {
                 />
                 <div className="min-w-0">
                   <p className="truncate text-[10px] leading-snug text-ink/85">{memory.title}</p>
-                  <p className="font-mono text-[7.5px] uppercase tracking-[0.08em] text-faint">
+                  <p className="font-mono text-[7.5px] text-faint">
                     {memory.kind} · importance {memory.importance}
                   </p>
                 </div>
@@ -135,7 +135,7 @@ export function IsolationDemo() {
             <ShieldAlert className="size-3" />
             {attempting ? "Resolving boundary…" : denied ? "Reset probe" : "Attempt cross-context read"}
           </button>
-          <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-faint">
+          <span className="text-[11.5px] text-faint">
             policy: isolation.strict
           </span>
         </div>
@@ -156,7 +156,7 @@ export function IsolationDemo() {
               >
                 <div className="flex items-center gap-1.5 text-faint">
                   <Terminal className="size-3" />
-                  <span className="uppercase tracking-[0.1em]">safety.trace</span>
+                  <span className="">safety.trace</span>
                 </div>
                 <div className="mt-1.5 space-y-0.5">
                   <p className="text-muted">
@@ -188,7 +188,7 @@ export function IsolationDemo() {
         ].map((stat, index) => (
           <div key={stat.label} className={cn("px-3 py-2.5", index > 0 && "border-l border-line")}>
             <p className="font-mono text-[12px] tabular-nums text-ink">{stat.value}</p>
-            <p className="font-mono text-[7.5px] uppercase tracking-[0.1em] text-faint">{stat.label}</p>
+            <p className="font-mono text-[7.5px] text-faint">{stat.label}</p>
           </div>
         ))}
       </div>

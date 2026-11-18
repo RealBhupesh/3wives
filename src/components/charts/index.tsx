@@ -83,9 +83,9 @@ export function LineChart({
           const y = yFor(value);
           return (
             <g key={i}>
-              <line x1={pad.l} x2={W - pad.r} y1={y} y2={y} stroke="rgba(255,255,255,0.055)" strokeWidth="1" />
+              <line x1={pad.l} x2={W - pad.r} y1={y} y2={y} stroke="rgba(11,13,18,0.055)" strokeWidth="1" />
               {!compact && (
-                <text x={pad.l - 8} y={y + 3} textAnchor="end" fontSize="9" fill="#6b6c7a" fontFamily="var(--font-jetbrains)">
+                <text x={pad.l - 8} y={y + 3} textAnchor="end" fontSize="9" fill="#8b909a" fontFamily="var(--font-geist-mono)">
                   {Math.round(value)}
                 </text>
               )}
@@ -122,7 +122,7 @@ export function LineChart({
             x2={xFor(hover)}
             y1={pad.t}
             y2={H - pad.b}
-            stroke="rgba(255,255,255,0.2)"
+            stroke="rgba(11,13,18,0.2)"
             strokeWidth="1"
             strokeDasharray="2 3"
           />
@@ -134,7 +134,7 @@ export function LineChart({
             cx={xFor(count - 1)}
             cy={yFor(s.values[count - 1])}
             r="2.4"
-            fill="#08090d"
+            fill="#ffffff"
             stroke={s.color}
             strokeWidth="1.5"
           />
@@ -142,7 +142,7 @@ export function LineChart({
 
         {hover !== null &&
           series.map((s) => (
-            <circle key={`h-${s.key}`} cx={xFor(hover)} cy={yFor(s.values[hover])} r="3" fill={s.color} stroke="#08090d" strokeWidth="1.5" />
+            <circle key={`h-${s.key}`} cx={xFor(hover)} cy={yFor(s.values[hover])} r="3" fill={s.color} stroke="#ffffff" strokeWidth="1.5" />
           ))}
 
         {labels.map((label, i) =>
@@ -153,8 +153,8 @@ export function LineChart({
               y={H - 6}
               textAnchor={i === 0 ? "start" : i === count - 1 ? "end" : "middle"}
               fontSize="9"
-              fill="#6b6c7a"
-              fontFamily="var(--font-jetbrains)"
+              fill="#8b909a"
+              fontFamily="var(--font-geist-mono)"
             >
               {label}
             </text>
@@ -196,7 +196,7 @@ export function LineChart({
 
 export function Sparkline({
   values,
-  color = "#ff4778",
+  color = "#09090B",
   height = 32,
   className,
   fill = true,
@@ -236,8 +236,8 @@ export function Ring({
   value,
   size = 64,
   stroke = 4,
-  color = "#ff4778",
-  track = "rgba(255,255,255,0.08)",
+  color = "#09090B",
+  track = "rgba(11,13,18,0.08)",
   children,
   label,
 }: {
@@ -306,7 +306,7 @@ export function Donut({
   return (
     <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }}>
       <svg width={size} height={size} className="-rotate-90" role="img" aria-label={segments.map((s) => `${s.label} ${s.value}`).join(", ")}>
-        <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth={stroke} />
+        <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="rgba(11,13,18,0.05)" strokeWidth={stroke} />
         {arcs.map((segment) => (
           <circle
             key={segment.label}
@@ -401,7 +401,7 @@ export function GroupedBars({
 export function MiniBars({
   values,
   labels,
-  color = "#ff4778",
+  color = "#09090B",
   formatValue = (v: number) => `${v}`,
 }: {
   values: number[];
@@ -422,7 +422,7 @@ export function MiniBars({
               className="w-full rounded-[1.5px] transition-opacity"
               style={{
                 height: `${height}%`,
-                background: isLast ? color : "rgba(255,255,255,0.14)",
+                background: isLast ? color : "rgba(11,13,18,0.14)",
               }}
             />
             <span className="pointer-events-none absolute -top-5 left-1/2 -translate-x-1/2 rounded bg-surface-2 px-1 py-0.5 font-mono text-[9px] text-ink opacity-0 transition-opacity group-hover:opacity-100">
