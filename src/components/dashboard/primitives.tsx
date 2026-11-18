@@ -103,7 +103,7 @@ export function WifeCard({
   trend: number[];
   dense?: boolean;
 }) {
-  const statusColor = wife.status === "stable" ? "#3ddc97" : wife.status === "attention" ? "#f5b544" : "#ff3b4e";
+  const statusColor = wife.status === "stable" ? "#12a26b" : wife.status === "attention" ? "#d98a00" : "#e5383b";
   const days = differenceInCalendarDays(new Date(wife.nextDate.date), new Date());
   const lastSeen =
     wife.lastInteractionMinutes < 60
@@ -158,14 +158,14 @@ export function WifeCard({
       </div>
 
       <dl className={cn("relative mt-2 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-line bg-line", dense && "hidden sm:grid")}>
-        <div className="bg-[#0b0c12] px-2.5 py-2">
+        <div className="bg-[#ffffff] px-2.5 py-2">
           <dt className="font-mono text-[7.5px] uppercase tracking-[0.08em] text-faint">Last interaction</dt>
           <dd className="mt-0.5 flex items-center gap-1 text-[10.5px] text-ink">
             <Clock3 className="size-2.5 text-faint" />
             {lastSeen}
           </dd>
         </div>
-        <div className="bg-[#0b0c12] px-2.5 py-2">
+        <div className="bg-[#ffffff] px-2.5 py-2">
           <dt className="font-mono text-[7.5px] uppercase tracking-[0.08em] text-faint">{wife.nextDate.label}</dt>
           <dd className="mt-0.5 text-[10.5px] text-ink">
             {format(new Date(wife.nextDate.date), "MMM d")}
@@ -174,7 +174,7 @@ export function WifeCard({
         </div>
       </dl>
 
-      <div className="relative mt-2 flex items-center gap-1.5 rounded border border-line bg-white/[0.018] px-2.5 py-1.5">
+      <div className="relative mt-2 flex items-center gap-1.5 rounded border border-line bg-ink/[0.018] px-2.5 py-1.5">
         <Sparkles className="size-3 shrink-0 text-violet" />
         <span className="font-mono text-[8px] uppercase tracking-[0.08em] text-faint">AI</span>
         <span className="truncate text-[10px] text-muted">{wife.activity}</span>
@@ -212,7 +212,7 @@ export function EmptyState({
 }) {
   return (
     <div className="flex flex-col items-center justify-center gap-3 rounded-md border border-dashed border-line px-4 py-12 text-center">
-      <span className="flex size-9 items-center justify-center rounded-full border border-line bg-white/[0.02]">
+      <span className="flex size-9 items-center justify-center rounded-full border border-line bg-ink/[0.02]">
         <Icon className="size-4 text-faint" />
       </span>
       <div>

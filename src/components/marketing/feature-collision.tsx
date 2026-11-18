@@ -47,7 +47,7 @@ export function CollisionDemo() {
           "pointer-events-none absolute inset-0 transition-opacity duration-700",
           phase === "resolved" ? "opacity-0" : "opacity-100",
         )}
-        style={{ background: "radial-gradient(60% 50% at 50% 0%, rgba(255,59,78,0.12), transparent 70%)" }}
+        style={{ background: "radial-gradient(60% 50% at 50% 0%, rgba(229,56,59,0.12), transparent 70%)" }}
       />
 
       <div className="relative p-4 md:p-5">
@@ -57,7 +57,7 @@ export function CollisionDemo() {
               <AlertTriangle className="size-3.5 text-red" />
             </span>
             <div>
-              <p className="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-red">
+              <p className="text-[11.5px] font-medium text-red">
                 {phase === "resolved" ? "Collision resolved" : "Collision detected"}
               </p>
               <p className="mt-0.5 text-[11px] text-muted">
@@ -67,7 +67,7 @@ export function CollisionDemo() {
               </p>
             </div>
           </div>
-          <span className="rounded border border-red/25 bg-red/[0.07] px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.1em] text-red">
+          <span className="rounded border border-red/25 bg-red/[0.07] px-1.5 py-0.5 text-[11.5px] text-red">
             {phase === "resolved" ? "Contained" : "Severity 1"}
           </span>
         </div>
@@ -79,13 +79,13 @@ export function CollisionDemo() {
             title="Anniversary dinner"
             time="20:00 — 23:00"
             where="Le Fantôme"
-            color="#ff8fa3"
+            color="#f26b1d"
             resolved={false}
             moved={false}
           />
           <div className={cn("flex items-center justify-center gap-2 py-1 sm:flex-col", phase === "resolved" ? "text-green" : "text-red")}>
             <span className="hidden h-px w-6 bg-current opacity-40 sm:block" />
-            <span className="font-mono text-[8px] uppercase tracking-[0.1em]">
+            <span className="text-[11.5px]">
               {phase === "resolved" ? "0m" : "150m"}
             </span>
             <ArrowRight className="size-3 sm:rotate-90" />
@@ -96,7 +96,7 @@ export function CollisionDemo() {
             title="Drinks with Priya"
             time={phase === "resolved" ? "24h later · 20:30" : "20:30 — 22:30"}
             where="Bar Part Time"
-            color="#a78bfa"
+            color="#6e56f8"
             resolved={phase === "resolved"}
             moved={phase === "resolved"}
           />
@@ -108,7 +108,7 @@ export function CollisionDemo() {
             { label: "Overlap", value: phase === "resolved" ? "0 min" : "150 min", danger: phase !== "resolved" },
             { label: "Social cost", value: phase === "resolved" ? "low" : "high", danger: phase !== "resolved" },
           ].map((stat) => (
-            <div key={stat.label} className="bg-[#0b0c12] px-3 py-2">
+            <div key={stat.label} className="bg-[#ffffff] px-3 py-2">
               <p
                 className={cn(
                   "font-mono text-[13px] tabular-nums",
@@ -117,7 +117,7 @@ export function CollisionDemo() {
               >
                 {stat.value}
               </p>
-              <p className="font-mono text-[7.5px] uppercase tracking-[0.1em] text-faint">{stat.label}</p>
+              <p className="font-mono text-[7.5px] text-faint">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -141,7 +141,7 @@ export function CollisionDemo() {
                   >
                     <Check className="size-2.5 text-green" />
                     {line}
-                    <span className="ml-auto text-[7.5px] uppercase tracking-[0.08em] text-faint">
+                    <span className="ml-auto text-[7.5px] text-faint">
                       {index === STEPS.length - 1 && step === STEPS.length ? "done" : "ok"}
                     </span>
                   </motion.div>
@@ -162,7 +162,7 @@ export function CollisionDemo() {
                 <Check className="size-3.5 text-green" />
                 <p className="text-[11px] text-ink">Zero collisions. Both contexts remain isolated.</p>
               </div>
-              <p className="mt-1 font-mono text-[8.5px] uppercase leading-relaxed tracking-[0.06em] text-faint">
+              <p className="mt-1 text-[11.5px] leading-relaxed text-faint">
                 Olivia received a reschedule note · Sophia&apos;s reservation untouched · no cross-context reference
               </p>
             </motion.div>
@@ -177,7 +177,7 @@ export function CollisionDemo() {
               "flex h-9 flex-1 items-center justify-center gap-1.5 rounded-md text-[11.5px] font-medium transition-colors disabled:opacity-60",
               phase === "resolved"
                 ? "border border-line text-muted hover:text-ink"
-                : "bg-ink text-ground hover:bg-white",
+                : "bg-ink text-ground hover:bg-ink/85",
             )}
           >
             {phase === "resolved" ? (
@@ -191,7 +191,7 @@ export function CollisionDemo() {
               "Run autonomous resolution"
             )}
           </button>
-          <span className="hidden font-mono text-[8px] uppercase tracking-[0.1em] text-faint sm:block">
+          <span className="hidden text-[11.5px] text-faint sm:block">
             no messages sent
           </span>
         </div>
@@ -222,14 +222,14 @@ function EventCard({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-md border bg-[#0b0c12] p-3 transition-colors duration-500",
+        "relative overflow-hidden rounded-md border bg-[#ffffff] p-3 transition-colors duration-500",
         resolved ? "border-green/25" : "border-red/20",
       )}
     >
-      <span className="absolute inset-y-0 left-0 w-[2px]" style={{ background: resolved ? "#3ddc97" : color }} />
+      <span className="absolute inset-y-0 left-0 w-[2px]" style={{ background: resolved ? "#12a26b" : color }} />
       <div className="flex items-center justify-between">
-        <span className="font-mono text-[7.5px] uppercase tracking-[0.12em] text-faint">{code}</span>
-        <span className={cn("font-mono text-[7.5px] uppercase tracking-[0.1em]", resolved ? "text-green" : "text-red")}>
+        <span className="font-mono text-[7.5px] text-faint">{code}</span>
+        <span className={cn("font-mono text-[7.5px]", resolved ? "text-green" : "text-red")}>
           {resolved ? "rescheduled" : "locked"}
         </span>
       </div>
@@ -239,7 +239,7 @@ function EventCard({
         <MapPin className="size-2.5" />
         {where}
       </p>
-      <p className="mt-2 font-mono text-[7.5px] uppercase tracking-[0.1em] text-faint">{name}</p>
+      <p className="mt-2 font-mono text-[7.5px] text-faint">{name}</p>
     </div>
   );
 }

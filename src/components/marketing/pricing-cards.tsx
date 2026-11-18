@@ -28,11 +28,11 @@ export interface Plan {
 export const PLANS: Plan[] = [
   {
     id: "monogamy",
-    name: "Monogamy",
+    name: "Solo",
     price: 0,
     annual: 0,
-    tagline: "One wife. You can probably handle this yourself.",
-    description: "A single relationship namespace with the essentials. For commanders still operating manually.",
+    tagline: "For one relationship, kept with care.",
+    description: "A private space for one relationship, with memory, reminders and drafting.",
     features: [
       "1 isolated relationship namespace",
       "250 memory vectors",
@@ -44,11 +44,11 @@ export const PLANS: Plan[] = [
   },
   {
     id: "dual",
-    name: "Dual Core",
+    name: "Duo",
     price: 19,
     annual: 15,
-    tagline: "Two relationships. Double the complexity.",
-    description: "Two identities, two calendars, one inference layer. Collision prevention included.",
+    tagline: "For two relationships, fully separate.",
+    description: "Two isolated spaces, shared scheduling intelligence, and conflict prevention.",
     features: [
       "2 isolated namespaces",
       "5,000 memory vectors",
@@ -57,15 +57,15 @@ export const PLANS: Plan[] = [
       "Emotional state model",
       "Priority draft generation",
     ],
-    cta: "Choose Dual Core",
+    cta: "Choose Duo",
   },
   {
     id: "triple",
-    name: "Triple Threat",
+    name: "Trio",
     price: 49,
     annual: 39,
-    tagline: "Three wives. Enterprise-grade infrastructure.",
-    description: "The full relationship orchestration stack. Three identities, zero shared context, one commander.",
+    tagline: "For three relationships, with every safeguard.",
+    description: "The complete platform. Three isolated spaces, priority support, and the incident center.",
     features: [
       "3 isolated namespaces",
       "Unlimited memory vectors (fair use)",
@@ -75,7 +75,7 @@ export const PLANS: Plan[] = [
       "p50 inference under 300ms",
       "Dedicated isolation cluster",
     ],
-    cta: "Initialize Triple Threat",
+    cta: "Start Trio",
     recommended: true,
   },
 ];
@@ -137,11 +137,11 @@ function ProvisionRunner({ plan, onClose }: { plan: Plan; onClose: () => void })
       </DialogHeader>
 
       <div className="rounded-md border border-line bg-ground p-3">
-        <div className="flex items-center justify-between font-mono text-[8.5px] uppercase tracking-[0.1em]">
+        <div className="flex items-center justify-between text-[11.5px]">
           <span className="text-faint">Provisioning sequence</span>
           <span className="tabular-nums text-muted">{Math.round((step / PROVISION_STEPS.length) * 100)}%</span>
         </div>
-        <div className="mt-2 h-[3px] w-full overflow-hidden rounded-full bg-white/[0.07]">
+        <div className="mt-2 h-[3px] w-full overflow-hidden rounded-full bg-ink/[0.07]">
           <div
             className="h-full rounded-full bg-accent transition-all duration-500 ease-out"
             style={{ width: `${(step / PROVISION_STEPS.length) * 100}%` }}
@@ -178,7 +178,7 @@ function ProvisionRunner({ plan, onClose }: { plan: Plan; onClose: () => void })
           </Button>
         </div>
       ) : (
-        <p className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-faint">
+        <p className="text-[11.5px] text-faint">
           No payment method required · demo data only
         </p>
       )}
@@ -204,11 +204,11 @@ export function PricingCards({ compact = false }: { compact?: boolean }) {
         <div className="flex items-center gap-2.5">
           <Switch checked={annual} onCheckedChange={setAnnual} aria-label="Bill annually" />
           <span className="text-[12px] text-muted">Annual billing</span>
-          <span className="rounded-full border border-green/25 bg-green/[0.06] px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-[0.08em] text-green">
+          <span className="rounded-full border border-green/25 bg-green/[0.06] px-1.5 py-0.5 text-[11.5px] text-green">
             Save 20%
           </span>
         </div>
-        <p className="font-mono text-[9px] uppercase tracking-[0.1em] text-faint">
+        <p className="text-[11.5px] text-faint">
           Prices in USD · demo environment · no charge
         </p>
       </div>
@@ -223,8 +223,8 @@ export function PricingCards({ compact = false }: { compact?: boolean }) {
               className={cn(
                 "relative flex scroll-mt-24 flex-col overflow-hidden rounded-lg border p-5",
                 plan.recommended
-                  ? "border-accent/35 bg-[#0e0b11]"
-                  : "border-line bg-[#0b0c12]",
+                  ? "border-accent/35 bg-accent/[0.025]"
+                  : "border-line bg-[#ffffff]",
               )}
             >
               {plan.recommended && (
@@ -232,22 +232,22 @@ export function PricingCards({ compact = false }: { compact?: boolean }) {
                   <div
                     aria-hidden
                     className="pointer-events-none absolute inset-x-0 top-0 h-32 opacity-70"
-                    style={{ background: "radial-gradient(60% 100% at 50% 0%, rgba(255,71,120,0.18), transparent 70%)" }}
+                    style={{ background: "radial-gradient(60% 100% at 50% 0%, rgba(17,118,110,0.18), transparent 70%)" }}
                   />
-                  <span className="absolute right-4 top-4 rounded-full border border-accent/30 bg-accent/10 px-2 py-0.5 font-mono text-[8px] uppercase tracking-[0.1em] text-accent">
+                  <span className="absolute right-4 top-4 rounded-full border border-accent/30 bg-accent/10 px-2 py-0.5 text-[11.5px] text-accent">
                     Most chosen
                   </span>
                 </>
               )}
               <div className="relative">
-                <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-faint">{plan.name}</p>
+                <p className="text-[11.5px] text-faint">{plan.name}</p>
                 <div className="mt-4 flex items-baseline gap-1.5">
                   <span className="font-mono text-[38px] font-medium tracking-[-0.06em] tabular-nums text-ink">
                     ${price}
                   </span>
                   <span className="text-[12px] text-faint">/month</span>
                 </div>
-                <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.08em] text-faint">
+                <p className="mt-1 text-[11.5px] text-faint">
                   {annual
                     ? plan.price === 0
                       ? "Free forever"
@@ -282,7 +282,7 @@ export function PricingCards({ compact = false }: { compact?: boolean }) {
         })}
       </div>
 
-      <div className="mt-3 flex flex-col items-start justify-between gap-3 rounded-lg border border-line bg-white/[0.015] px-5 py-4 sm:flex-row sm:items-center">
+      <div className="mt-3 flex flex-col items-start justify-between gap-3 rounded-lg border border-line bg-ink/[0.015] px-5 py-4 sm:flex-row sm:items-center">
         <div>
           <p className="text-[13px] font-medium">4+ wives? Contact sales.</p>
           <p className="mt-0.5 text-[11.5px] text-muted">
@@ -291,7 +291,7 @@ export function PricingCards({ compact = false }: { compact?: boolean }) {
         </div>
         <a
           href="mailto:enterprise@3wives.ai?subject=Enterprise%20relationship%20infrastructure"
-          className="flex shrink-0 items-center gap-1.5 rounded-md border border-line-strong px-3 py-1.5 text-[11.5px] text-ink transition-colors hover:bg-white/[0.05]"
+          className="flex shrink-0 items-center gap-1.5 rounded-md border border-line-strong px-3 py-1.5 text-[11.5px] text-ink transition-colors hover:bg-ink/[0.05]"
         >
           Contact sales
           <ArrowRight className="size-3" />
@@ -305,7 +305,7 @@ export function PricingCards({ compact = false }: { compact?: boolean }) {
 
 export function PricingFinePrint() {
   return (
-    <p className="mt-6 font-mono text-[8.5px] uppercase leading-relaxed tracking-[0.08em] text-faint">
+    <p className="mt-6 text-[11.5px] leading-relaxed text-faint">
       All plans include 99.9% context isolation · no external messaging integrations · no messages are sent ·
       cancel anytime · this is a demonstration environment
     </p>

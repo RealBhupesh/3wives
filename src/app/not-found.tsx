@@ -12,14 +12,13 @@ export default function NotFound() {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-ground px-6 py-16">
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 size-[540px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.07] blur-[120px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_75%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(11,13,18,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(11,13,18,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_75%)]" />
       </div>
 
       <div className="relative flex w-full max-w-md flex-col items-center text-center">
         <Logo />
 
-        <p className="mt-10 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-faint">
+        <p className="mt-10 flex items-center gap-2 text-[11.5px] text-faint">
           <span className="status-dot" />
           route resolution · failed
         </p>
@@ -36,21 +35,21 @@ export default function NotFound() {
         <div className="mt-7 flex flex-col gap-2 sm:flex-row">
           <Link
             href="/"
-            className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-line-strong bg-white/[0.02] px-4 text-[13px] text-ink transition-colors hover:bg-white/[0.06]"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded-md border border-line-strong bg-ink/[0.02] px-4 text-[13px] text-ink transition-colors hover:bg-ink/[0.06]"
           >
             <ArrowLeft className="size-3.5" />
             Return to site
           </Link>
           <Link
             href="/dashboard"
-            className="inline-flex h-9 items-center justify-center gap-2 rounded-md bg-accent px-4 text-[13px] font-medium text-[#190409] transition-colors hover:bg-[#ff628b]"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded-md bg-accent px-4 text-[13px] font-medium text-white transition-colors hover:bg-accent-dim"
           >
             Command center
             <ArrowUpRight className="size-3.5" />
           </Link>
         </div>
 
-        <p className="mt-9 flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.1em] text-faint">
+        <p className="mt-9 flex items-center gap-1.5 text-[11.5px] text-faint">
           <ShieldCheck className="size-3 text-green" />
           3 contexts intact · isolation enforced
         </p>

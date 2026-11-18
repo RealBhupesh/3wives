@@ -27,13 +27,13 @@ export function GiftDemo() {
       <div className="p-3.5">
         <div className="flex items-center justify-between">
           <div>
-            <p className="font-mono text-[7.5px] uppercase tracking-[0.12em] text-faint">Monthly allocation</p>
+            <p className="font-mono text-[7.5px] text-faint">Monthly allocation</p>
             <p className="mt-0.5 font-mono text-[17px] tabular-nums tracking-[-0.04em] text-ink">
               {formatCurrency(budget)}
             </p>
           </div>
           <div className="text-right">
-            <p className="font-mono text-[7.5px] uppercase tracking-[0.12em] text-faint">Optimized spend</p>
+            <p className="font-mono text-[7.5px] text-faint">Optimized spend</p>
             <p className="mt-0.5 font-mono text-[13px] tabular-nums text-green">{formatCurrency(spend)}</p>
           </div>
         </div>
@@ -47,7 +47,7 @@ export function GiftDemo() {
           className="mt-3"
           aria-label="Monthly gift budget"
         />
-        <div className="mt-1.5 flex justify-between font-mono text-[7.5px] uppercase tracking-[0.08em] text-faint">
+        <div className="mt-1.5 flex justify-between font-mono text-[7.5px] text-faint">
           <span>$150</span>
           <span>{formatCurrency(allocation)} per relationship</span>
           <span>$1,800</span>
@@ -57,11 +57,11 @@ export function GiftDemo() {
           {recommendations.map(({ wife, gift, all }) => (
             <div
               key={wife.id}
-              className="flex items-center gap-2.5 rounded-md border border-line bg-white/[0.018] px-2.5 py-2"
+              className="flex items-center gap-2.5 rounded-md border border-line bg-ink/[0.018] px-2.5 py-2"
             >
               <span className="size-1.5 shrink-0 rounded-full" style={{ background: wife.palette.from }} />
               <div className="min-w-0 flex-1">
-                <p className="font-mono text-[7.5px] uppercase tracking-[0.1em] text-faint">
+                <p className="font-mono text-[7.5px] text-faint">
                   {wife.code} · {wife.name}
                 </p>
                 {gift ? (
@@ -77,7 +77,7 @@ export function GiftDemo() {
                 <p className="font-mono text-[10px] tabular-nums text-ink">
                   {gift ? formatCurrency(gift.price) : "—"}
                 </p>
-                <p className="font-mono text-[7.5px] uppercase tracking-[0.08em] text-green">
+                <p className="font-mono text-[7.5px] text-green">
                   {gift ? `${gift.match}% match` : "deferred"}
                 </p>
               </div>
@@ -93,11 +93,11 @@ export function GiftDemo() {
         </div>
 
         <div className="mt-2 flex items-center justify-between border-t border-line pt-2">
-          <span className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-[0.1em] text-faint">
+          <span className="flex items-center gap-1 text-[11.5px] text-faint">
             <Gauge className="size-3" />
             remaining {formatCurrency(Math.max(budget - spend, 0))}
           </span>
-          <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-green">0 duplicates</span>
+          <span className="text-[11.5px] text-green">0 duplicates</span>
         </div>
       </div>
     </DemoShell>

@@ -28,9 +28,9 @@ import { cn } from "@/lib/utils";
 import type { Commander, Settings } from "@/lib/types";
 
 const PLAN_LABEL: Record<Commander["plan"], string> = {
-  monogamy: "Monogamy · $0",
-  dual: "Dual Core · $19",
-  triple: "Triple Threat · $49",
+  monogamy: "Solo · $0",
+  dual: "Duo · $19",
+  triple: "Trio · $49",
   enterprise: "Enterprise · contact sales",
 };
 
@@ -318,7 +318,7 @@ export default function SettingsPage() {
 
         <div className="space-y-3 xl:col-span-4">
           <SectionCard kicker="Workspace" title="What is actually running" action={<UserRound className="size-3.5 text-faint" />}>
-            <div className="flex items-center gap-2.5 rounded border border-line bg-white/[0.02] p-2.5">
+            <div className="flex items-center gap-2.5 rounded border border-line bg-ink/[0.02] p-2.5">
               <span className="flex size-9 items-center justify-center rounded-full border border-accent/25 bg-accent/[0.08] font-mono text-[11px] text-accent">
                 CM
               </span>
@@ -349,7 +349,7 @@ export default function SettingsPage() {
               <p className="font-mono text-[7.5px] uppercase tracking-[0.06em] text-faint">browser storage used</p>
               <p className="font-mono text-[10px] tabular-nums text-ink">{storage.kb} KB</p>
             </div>
-            <div className="mt-1.5 h-[4px] overflow-hidden rounded-full bg-white/[0.06]">
+            <div className="mt-1.5 h-[4px] overflow-hidden rounded-full bg-ink/[0.06]">
               <div
                 className="h-full rounded-full bg-accent transition-all duration-700"
                 style={{ width: `${Math.max(storage.percent, 1.5)}%` }}
@@ -392,7 +392,7 @@ export default function SettingsPage() {
             </div>
           </SectionCard>
 
-          <div className="rounded-md border border-line bg-white/[0.015] p-3">
+          <div className="rounded-md border border-line bg-ink/[0.015] p-3">
             <p className="flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.08em] text-faint">
               <Fingerprint className="size-3" />
               isolation attestation

@@ -32,7 +32,7 @@ const KIND_META: Record<MemoryKind, { label: string; className: string; bar: str
   preference: { label: "Preference", className: "border-violet/25 bg-violet/[0.07] text-violet", bar: "bg-violet" },
   milestone: { label: "Milestone", className: "border-accent/25 bg-accent/[0.07] text-accent", bar: "bg-accent" },
   sensitive: { label: "Sensitive", className: "border-red/25 bg-red/[0.07] text-red", bar: "bg-red" },
-  logistics: { label: "Logistics", className: "border-[#5b8def]/25 bg-[#5b8def]/[0.07] text-[#8fb2ff]", bar: "bg-[#5b8def]" },
+  logistics: { label: "Logistics", className: "border-[#3b82f6]/25 bg-[#3b82f6]/[0.07] text-[#2563eb]", bar: "bg-[#3b82f6]" },
   gift: { label: "Gift", className: "border-green/25 bg-green/[0.07] text-green", bar: "bg-green" },
 };
 
@@ -54,7 +54,7 @@ function ImportanceMeter({ value }: { value: number }) {
                 : value >= 4
                   ? "bg-violet"
                   : "bg-muted"
-              : "bg-white/[0.08]",
+              : "bg-ink/[0.08]",
           )}
         />
       ))}
@@ -167,7 +167,7 @@ function AddMemoryDialog({ open, onOpenChange }: { open: boolean; onOpenChange: 
             </NativeSelect>
           </div>
           <div className="flex items-end">
-            <label className="flex w-full items-center justify-between rounded-md border border-line bg-white/[0.02] px-3 py-2">
+            <label className="flex w-full items-center justify-between rounded-md border border-line bg-ink/[0.02] px-3 py-2">
               <span className="flex items-center gap-1.5 text-[11px] text-muted">
                 <Star className="size-3 text-accent" />
                 Pin to context
@@ -305,7 +305,7 @@ function MemoryVaultView() {
                       aria-pressed={wifeFilter === value}
                       className={cn(
                         "rounded px-2 py-1 font-mono text-[8px] uppercase tracking-[0.06em] transition-colors",
-                        wifeFilter === value ? "bg-white/[0.08] text-ink" : "text-faint hover:text-muted",
+                        wifeFilter === value ? "bg-ink/[0.08] text-ink" : "text-faint hover:text-muted",
                       )}
                     >
                       {value === "all" ? "All" : wifeMap[value]?.name ?? value}
@@ -357,9 +357,9 @@ function MemoryVaultView() {
                   const wife = wifeMap[memory.wifeId];
                   const meta = KIND_META[memory.kind];
                   return (
-                    <li key={memory.id} className="group px-3 py-2.5 transition-colors hover:bg-white/[0.015]">
+                    <li key={memory.id} className="group px-3 py-2.5 transition-colors hover:bg-ink/[0.015]">
                       <div className="flex items-start gap-2.5">
-                        <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded border border-line bg-white/[0.02]">
+                        <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded border border-line bg-ink/[0.02]">
                           <ImportanceMeter value={memory.importance} />
                         </span>
                         <div className="min-w-0 flex-1">
@@ -407,17 +407,17 @@ function MemoryVaultView() {
           <SectionCard kicker="Isolation matrix" title="Who can read what" action={<Fingerprint className="size-3.5 text-green" />}>
             <div className="overflow-hidden rounded border border-line">
               <div className="grid grid-cols-4 gap-px bg-line">
-                <div className="bg-[#0b0c12] px-2 py-1.5 font-mono text-[7px] uppercase tracking-[0.06em] text-faint">
+                <div className="bg-[#ffffff] px-2 py-1.5 font-mono text-[7px] uppercase tracking-[0.06em] text-faint">
                   reader ↓
                 </div>
                 {state.wives.map((wife) => (
-                  <div key={wife.id} className="bg-[#0b0c12] px-1.5 py-1.5 text-center font-mono text-[7px] uppercase tracking-[0.04em] text-faint">
+                  <div key={wife.id} className="bg-[#ffffff] px-1.5 py-1.5 text-center font-mono text-[7px] uppercase tracking-[0.04em] text-faint">
                     {wife.name.slice(0, 3)}
                   </div>
                 ))}
                 {state.wives.map((reader) => (
                   <div key={`row-${reader.id}`} className="contents">
-                    <div className="bg-[#0b0c12] px-2 py-2 font-mono text-[7px] uppercase tracking-[0.04em] text-muted">
+                    <div className="bg-[#ffffff] px-2 py-2 font-mono text-[7px] uppercase tracking-[0.04em] text-muted">
                       {reader.name.slice(0, 3)}
                     </div>
                     {state.wives.map((owner) => {
@@ -469,7 +469,7 @@ function MemoryVaultView() {
                         {count} · {percentage}%
                       </span>
                     </div>
-                    <div className="mt-1 h-[3px] overflow-hidden rounded-full bg-white/[0.06]">
+                    <div className="mt-1 h-[3px] overflow-hidden rounded-full bg-ink/[0.06]">
                       <div className={cn("h-full rounded-full", KIND_META[kind].bar)} style={{ width: `${Math.max(percentage, 2)}%` }} />
                     </div>
                   </div>
@@ -481,7 +481,7 @@ function MemoryVaultView() {
             </p>
           </SectionCard>
 
-          <div className="rounded-md border border-line bg-white/[0.015] p-3">
+          <div className="rounded-md border border-line bg-ink/[0.015] p-3">
             <p className="flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.1em] text-faint">
               <Database className="size-3" />
               storage layer

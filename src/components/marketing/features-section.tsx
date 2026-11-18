@@ -15,7 +15,9 @@ function CompactFeature({
   description,
   children,
   id,
+  tone,
 }: {
+  tone: "sophia" | "olivia" | "isabella";
   kicker: string;
   title: string;
   description: string;
@@ -23,11 +25,15 @@ function CompactFeature({
   id?: string;
 }) {
   return (
-    <div id={id} className="flex scroll-mt-24 flex-col rounded-lg border border-line bg-[#0a0b10] p-4">
-      <p className="mono-label">{kicker}</p>
-      <h3 className="mt-2.5 text-[19px] font-medium leading-tight tracking-[-0.02em]">{title}</h3>
-      <p className="mt-2 min-h-[48px] text-[12px] leading-relaxed text-muted">{description}</p>
-      <div className="mt-4 flex-1">{children}</div>
+    <div id={id} className="flex scroll-mt-24 flex-col overflow-hidden rounded-[28px] border border-line bg-white">
+      <div className={`stage stage-${tone} !rounded-none !p-5`}>
+        <div className="relative shadow-[0_18px_40px_-24px_rgba(30,20,90,0.35)]">{children}</div>
+      </div>
+      <div className="flex-1 p-6">
+        <p className="mono-label">{kicker}</p>
+        <h3 className="mt-2 text-[20px] font-bold leading-tight tracking-[-0.025em]">{title}</h3>
+        <p className="mt-2 text-[14px] leading-relaxed text-muted">{description}</p>
+      </div>
     </div>
   );
 }
@@ -48,7 +54,7 @@ export function FeaturesSection() {
         action={
           <Link
             href="/engine"
-            className="group inline-flex items-center gap-2 rounded-md border border-line px-3.5 py-2 font-mono text-[9px] uppercase tracking-[0.12em] text-muted transition-colors hover:border-line-strong hover:text-ink"
+            className="group inline-flex items-center gap-2 rounded-md border border-line px-3.5 py-2 text-[11.5px] text-muted transition-colors hover:border-line-strong hover:text-ink"
           >
             Inspect the engine
             <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
@@ -59,9 +65,10 @@ export function FeaturesSection() {
       <div className="mt-14 md:mt-20">
         <FeatureFrame
           id="twin"
-          kicker="01 — Identity"
-          title="She thinks it's you. Because it sounds exactly like you."
-          description="The conversational twin learns vocabulary, rhythm, humor, emoji habits, and the specific way you avoid answering a question. Drafts arrive in your voice, not a customer-support voice."
+          tone="olivia"
+          kicker="Identity"
+          title="Replies that sound like you, because they learn from you."
+          description="The conversational twin learns vocabulary, rhythm, humor, emoji habits, and tone from your own messages. Drafts arrive in your voice, never a generic one, and nothing is sent without you."
           bullets={[
             "Per-relationship voice model trained on your own messages",
             "Style match scored before any draft is surfaced",
@@ -74,8 +81,9 @@ export function FeaturesSection() {
 
         <FeatureFrame
           id="isolation"
-          kicker="02 — Isolation"
-          title="What happens in Relationship A stays in Relationship A."
+          tone="isabella"
+          kicker="Isolation"
+          title="Each relationship is its own private world."
           description="Each relationship owns a separate vector memory namespace with its own retrieval key. The router resolves identity before it touches memory. There is no shared buffer to leak."
           bullets={[
             "One namespace per relationship, cryptographically separated",
@@ -90,9 +98,10 @@ export function FeaturesSection() {
 
         <FeatureFrame
           id="collision"
-          kicker="03 — Coordination"
-          title="Because two dinner dates cannot happen at 8 PM."
-          description="The collision engine reads three calendars, travel buffers, and conversational commitments. When two versions of your evening collide, it negotiates with itself before it bothers you."
+          tone="sophia"
+          kicker="Coordination"
+          title="Conflicts resolved before they reach your calendar."
+          description="The collision engine reads three calendars, travel buffers, and conversational commitments. When two plans overlap, it proposes a considerate change before the conflict ever reaches you."
           bullets={[
             "Overlap detection across all three calendars",
             "Automatic reschedule with a plausible, per-context reason",
@@ -104,29 +113,32 @@ export function FeaturesSection() {
         </FeatureFrame>
       </div>
 
-      <div className="mt-16 border-t border-line pt-16 md:mt-20 md:pt-20">
-        <div className="grid gap-3 lg:grid-cols-3">
+      <div className="mt-10 md:mt-14">
+        <div className="grid gap-5 lg:grid-cols-3">
           <CompactFeature
             id="anniversary"
-            kicker="04 — Memory"
-            title="Never forget a date. Never buy the same gift twice."
+          tone="sophia"
+            kicker="Memory"
+            title="Every date remembered. Every gift considered."
             description="Occasions are resolved once, then armed across redundant reminders. Gift history is checked before any recommendation reaches you."
           >
             <AnniversaryDemo />
           </CompactFeature>
           <CompactFeature
             id="emotional"
-            kicker="05 — Emotion"
-            title="Different moods. Different conversations. Same you."
+          tone="olivia"
+            kicker="Emotion"
+            title="Understand how each person is really feeling."
             description="An independent emotional context model per relationship. The recommendation changes before the conversation does."
           >
             <EmotionalDemo />
           </CompactFeature>
           <CompactFeature
             id="gift"
-            kicker="06 — Gifts"
-            title="Three personalities. Three wishlists. One optimized budget."
-            description="Every gift is evaluated on interest match, milestone relevance, and duplicate silhouette across the other two contexts."
+          tone="isabella"
+            kicker="Gifts"
+            title="Thoughtful gifts, chosen for who they are."
+            description="Every suggestion is weighed against her interests, the occasion, and what you have already given."
           >
             <GiftDemo />
           </CompactFeature>
@@ -136,9 +148,10 @@ export function FeaturesSection() {
       <div className="mt-16 md:mt-20">
         <FeatureFrame
           id="incident"
-          kicker="07 — Response"
-          title="She's asking who Jessica is."
-          description="The emergency protocol freezes outbound drafting, resolves the entity graph, and produces three responses ranked by confidence and exposure risk. Nothing is sent without you."
+          tone="danger"
+          kicker="Response"
+          title="When something goes wrong, a calm plan in seconds."
+          description="When a difficult question arrives, 3Wives pauses all drafting, gathers the relevant context, and prepares three considered responses for you to choose from. Nothing is sent without you."
           bullets={[
             "Identity resolution across every namespace in under 300ms",
             "Response staging with confidence and risk scores",

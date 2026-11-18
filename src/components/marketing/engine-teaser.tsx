@@ -44,20 +44,20 @@ export function EngineTeaser() {
         </div>
         <Link
           href="/engine"
-          className="inline-flex shrink-0 items-center gap-2 rounded-md border border-line px-3.5 py-2 font-mono text-[9px] uppercase tracking-[0.12em] text-muted transition-colors hover:border-line-strong hover:text-ink"
+          className="inline-flex shrink-0 items-center gap-2 rounded-md border border-line px-3.5 py-2 text-[11.5px] text-muted transition-colors hover:border-line-strong hover:text-ink"
         >
           Open interactive engine
           <ArrowUpRight className="size-3" />
         </Link>
       </div>
 
-      <div className="relative mt-10 overflow-hidden rounded-lg border border-line-strong bg-[#0a0b10]">
+      <div className="relative mt-10 overflow-hidden rounded-lg border border-line-strong bg-[#ffffff]">
         <div className="flex items-center justify-between border-b border-line px-4 py-2.5">
           <div className="flex items-center gap-2">
             <span className="status-dot text-green" />
-            <span className="font-mono text-[8.5px] uppercase tracking-[0.14em] text-muted">Pipeline · live</span>
+            <span className="text-[11.5px] text-muted">Pipeline · live</span>
           </div>
-          <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-faint">
+          <span className="text-[11.5px] text-faint">
             p50 286ms · safety blocks 0.7%
           </span>
         </div>
@@ -66,7 +66,7 @@ export function EngineTeaser() {
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 opacity-60"
-            style={{ background: "radial-gradient(50% 60% at 50% 100%, rgba(255,71,120,0.07), transparent 70%)" }}
+            style={{ background: "radial-gradient(50% 60% at 50% 100%, rgba(17,118,110,0.07), transparent 70%)" }}
           />
           <div className="relative grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-8">
             {STAGES.map((stage, index) => {
@@ -80,18 +80,18 @@ export function EngineTeaser() {
                       isActive
                         ? "border-accent/45 bg-accent/[0.06]"
                         : isDone
-                          ? "border-green/20 bg-white/[0.02]"
-                          : "border-line bg-white/[0.012]",
+                          ? "border-green/20 bg-ink/[0.02]"
+                          : "border-line bg-ink/[0.012]",
                     )}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-[7.5px] uppercase tracking-[0.1em] text-faint">
+                      <span className="font-mono text-[7.5px] text-faint">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <span
                         className={cn(
                           "size-1 rounded-full",
-                          isActive ? "bg-accent" : isDone ? "bg-green" : "bg-white/15",
+                          isActive ? "bg-accent" : isDone ? "bg-green" : "bg-ink/15",
                         )}
                       />
                     </div>
@@ -103,12 +103,12 @@ export function EngineTeaser() {
                     >
                       {stage.name}
                     </p>
-                    <p className="mt-1 font-mono text-[7px] uppercase tracking-[0.08em] text-faint">
+                    <p className="mt-1 font-mono text-[7px] text-faint">
                       {isActive ? "processing" : isDone ? "pass" : "queued"}
                     </p>
                   </div>
                   {index < STAGES.length - 1 && (
-                    <span className="absolute -right-[7px] top-1/2 hidden size-1 -translate-y-1/2 rounded-full bg-white/15 lg:block" />
+                    <span className="absolute -right-[7px] top-1/2 hidden size-1 -translate-y-1/2 rounded-full bg-ink/15 lg:block" />
                   )}
                 </div>
               );
@@ -121,24 +121,24 @@ export function EngineTeaser() {
                 <ShieldCheck className="size-3.5 text-green" />
               </span>
               <div>
-                <p className="font-mono text-[8px] uppercase tracking-[0.12em] text-faint">Current stage</p>
+                <p className="text-[11.5px] text-faint">Current stage</p>
                 <p className="text-[11px] text-ink">{STAGES[active].name}</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <div className="text-right">
-                <p className="font-mono text-[7.5px] uppercase tracking-[0.08em] text-faint">namespace</p>
+                <p className="font-mono text-[7.5px] text-faint">namespace</p>
                 <p className="font-mono text-[9px] text-muted">ns.sophia.v2</p>
               </div>
               <div className="h-6 w-px bg-line" />
               <div className="text-right">
-                <p className="font-mono text-[7.5px] uppercase tracking-[0.08em] text-faint">cross-context</p>
+                <p className="font-mono text-[7.5px] text-faint">cross-context</p>
                 <p className="font-mono text-[9px] text-green">0 reads</p>
               </div>
             </div>
           </div>
 
-          <div className="mt-2 h-[2px] w-full overflow-hidden rounded-full bg-white/[0.05]">
+          <div className="mt-2 h-[2px] w-full overflow-hidden rounded-full bg-ink/[0.05]">
             <motion.div
               className="h-full bg-accent"
               animate={{ width: `${((active + 1) / STAGES.length) * 100}%` }}

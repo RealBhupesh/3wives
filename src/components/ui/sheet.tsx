@@ -14,7 +14,7 @@ const SheetContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & { side?: "left" | "right" }
 >(({ className, children, side = "left", ...props }, ref) => (
   <DialogPrimitive.Portal>
-    <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/70 backdrop-blur-[2px] data-[state=closed]:animate-overlay-out data-[state=open]:animate-overlay-in" />
+    <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-[#0b0d12]/25 backdrop-blur-[2px] data-[state=closed]:animate-overlay-out data-[state=open]:animate-overlay-in" />
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
@@ -28,7 +28,7 @@ const SheetContent = React.forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-3 top-3 rounded-sm p-1.5 text-faint transition-colors hover:bg-white/5 hover:text-ink">
+      <DialogPrimitive.Close className="absolute right-3 top-3 rounded-sm p-1.5 text-faint transition-colors hover:bg-ink/5 hover:text-ink">
         <X className="size-4" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>

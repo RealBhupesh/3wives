@@ -7,21 +7,21 @@ export const STATUS_META: Record<
 > = {
   stable: {
     label: "Stable",
-    color: "#3ddc97",
+    color: "#12a26b",
     text: "text-green",
     border: "border-green/25",
     bg: "bg-green/[0.08]",
   },
   attention: {
     label: "Needs attention",
-    color: "#f5b544",
+    color: "#d98a00",
     text: "text-amber",
     border: "border-amber/25",
     bg: "bg-amber/[0.08]",
   },
   critical: {
     label: "Critical",
-    color: "#ff3b4e",
+    color: "#e5383b",
     text: "text-red",
     border: "border-red/30",
     bg: "bg-red/[0.09]",

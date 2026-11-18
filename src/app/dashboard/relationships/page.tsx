@@ -66,7 +66,7 @@ function WifeSelector({
             onClick={() => onSelect(wife.id)}
             className={cn(
               "panel group flex items-center gap-3 p-3 text-left transition-colors",
-              active ? "border-line-strong bg-white/[0.04]" : "hover:border-line-strong",
+              active ? "border-line-strong bg-ink/[0.04]" : "hover:border-line-strong",
             )}
           >
             <IdentityAvatar wife={wife} size={38} />
@@ -76,7 +76,7 @@ function WifeSelector({
                 <span className="font-mono text-[7.5px] uppercase tracking-[0.1em] text-faint">{wife.code}</span>
               </div>
               <div className="mt-1 flex items-center gap-2">
-                <span className="h-[3px] flex-1 overflow-hidden rounded-full bg-white/[0.06]">
+                <span className="h-[3px] flex-1 overflow-hidden rounded-full bg-ink/[0.06]">
                   <span
                     className="block h-full rounded-full"
                     style={{
@@ -354,11 +354,11 @@ function RelationshipsView() {
               <div className="grid shrink-0 grid-cols-2 gap-px overflow-hidden rounded-md border border-line bg-line sm:w-[184px]">
                 {[
                   { label: "Stability", value: `${wife.health}%`, color: STATUS_META[wife.status].color },
-                  { label: "Coverage", value: `${coverage}%`, color: "#f4f4f6" },
-                  { label: "Attention", value: `${attention}%`, color: "#a78bfa" },
-                  { label: "Debt", value: `${debt?.value ?? 0}`, color: (debt?.value ?? 0) >= 50 ? "#ff3b4e" : "#f5b544" },
+                  { label: "Coverage", value: `${coverage}%`, color: "#0b0d12" },
+                  { label: "Attention", value: `${attention}%`, color: "#6e56f8" },
+                  { label: "Debt", value: `${debt?.value ?? 0}`, color: (debt?.value ?? 0) >= 50 ? "#e5383b" : "#d98a00" },
                 ].map((metric) => (
-                  <div key={metric.label} className="bg-[#0b0c12] px-3 py-2">
+                  <div key={metric.label} className="bg-[#ffffff] px-3 py-2">
                     <p className="font-mono text-[7.5px] uppercase tracking-[0.08em] text-faint">{metric.label}</p>
                     <p className="mt-0.5 font-mono text-[15px] tabular-nums" style={{ color: metric.color }}>
                       {metric.value}
@@ -378,7 +378,7 @@ function RelationshipsView() {
                   value: openCollisions ? String(openCollisions) : "None",
                 },
               ].map((item) => (
-                <div key={item.label} className="flex items-center gap-2.5 bg-[#0b0c12] px-3 py-2.5">
+                <div key={item.label} className="flex items-center gap-2.5 bg-[#ffffff] px-3 py-2.5">
                   <item.icon className={cn("size-3.5", openCollisions && item.label === "Open collisions" ? "text-red" : "text-faint")} />
                   <div>
                     <p className="font-mono text-[7.5px] uppercase tracking-[0.08em] text-faint">{item.label}</p>
@@ -457,7 +457,7 @@ function RelationshipsView() {
               <ul className="divide-y divide-line">
                 {obligations.map((event) => (
                   <li key={event.id} className="flex items-center gap-2.5 px-4 py-2.5">
-                    <span className="flex w-8 shrink-0 flex-col items-center rounded border border-line bg-white/[0.02] py-1">
+                    <span className="flex w-8 shrink-0 flex-col items-center rounded border border-line bg-ink/[0.02] py-1">
                       <span className="font-mono text-[7px] uppercase text-faint">{format(new Date(event.start), "MMM")}</span>
                       <span className="font-mono text-[11px] leading-none tabular-nums text-ink">
                         {format(new Date(event.start), "d")}
@@ -476,7 +476,7 @@ function RelationshipsView() {
           </SectionCard>
 
           <SectionCard kicker="Voice twin · v6" title="Tone & delivery" action={<Fingerprint className="size-3.5 text-violet" />}>
-            <div className="rounded border border-line bg-white/[0.018] p-3">
+            <div className="rounded border border-line bg-ink/[0.018] p-3">
               <Quote className="size-3 text-faint" />
               <p className="mt-1.5 text-[11.5px] leading-relaxed text-muted">{wife.voice}</p>
             </div>
@@ -503,7 +503,7 @@ function RelationshipsView() {
                 </span>
               ))}
             </div>
-            <div className="mt-3 flex items-center justify-between rounded border border-line bg-white/[0.015] px-2.5 py-1.5">
+            <div className="mt-3 flex items-center justify-between rounded border border-line bg-ink/[0.015] px-2.5 py-1.5">
               <span className="flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.08em] text-faint">
                 <Wallet className="size-2.5" />
                 gift budget

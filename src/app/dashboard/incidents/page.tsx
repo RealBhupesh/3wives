@@ -35,8 +35,8 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 const SEVERITY_STYLE: Record<Incident["severity"], string> = {
   severe: "border-red/35 bg-red/[0.08] text-red",
   high: "border-amber/30 bg-amber/[0.07] text-amber",
-  moderate: "border-line-strong bg-white/[0.03] text-muted",
-  low: "border-line bg-white/[0.02] text-faint",
+  moderate: "border-line-strong bg-ink/[0.03] text-muted",
+  low: "border-line bg-ink/[0.02] text-faint",
 };
 
 const STATUS_STYLE: Record<Incident["status"], string> = {
@@ -226,7 +226,7 @@ function IncidentConsole({ incident }: { incident: Incident }) {
             "relative border-b px-4 py-3.5",
             incident.severity === "severe" && !resolved
               ? "border-red/25 bg-red/[0.045]"
-              : "border-line bg-white/[0.015]",
+              : "border-line bg-ink/[0.015]",
           )}
         >
           <div className="flex flex-wrap items-center gap-2">
@@ -249,7 +249,7 @@ function IncidentConsole({ incident }: { incident: Incident }) {
                 "mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-md border",
                 incident.severity === "severe" && !resolved
                   ? "border-red/30 bg-red/[0.08]"
-                  : "border-line bg-white/[0.03]",
+                  : "border-line bg-ink/[0.03]",
               )}
             >
               <Siren className={cn("size-4", incident.severity === "severe" && !resolved ? "text-red" : "text-faint")} />
@@ -280,7 +280,7 @@ function IncidentConsole({ incident }: { incident: Incident }) {
             { label: "Affected context", value: wife.code, danger: false },
             { label: "Drafting", value: resolved ? "closed" : contained ? "paused" : "held", danger: !resolved },
           ].map((item) => (
-            <div key={item.label} className="bg-[#0a0b10] px-3 py-2.5">
+            <div key={item.label} className="bg-[#ffffff] px-3 py-2.5">
               <p className="font-mono text-[7px] uppercase tracking-[0.08em] text-faint">{item.label}</p>
               <p className={cn("mt-0.5 font-mono text-[13px] tabular-nums", item.danger ? "text-red" : "text-ink")}>
                 {item.value}
@@ -348,7 +348,7 @@ function IncidentConsole({ incident }: { incident: Incident }) {
             <ol className="space-y-2">
               {incident.analysis.slice(0, analysisRevealed).map((line, index) => (
                 <li key={line} className="flex items-start gap-2">
-                  <span className="mt-px flex size-4 shrink-0 items-center justify-center rounded border border-line bg-white/[0.02] font-mono text-[7px] tabular-nums text-faint">
+                  <span className="mt-px flex size-4 shrink-0 items-center justify-center rounded border border-line bg-ink/[0.02] font-mono text-[7px] tabular-nums text-faint">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <p className="text-[10.5px] leading-relaxed text-muted">{line}</p>
@@ -401,7 +401,7 @@ function IncidentConsole({ incident }: { incident: Incident }) {
                     key={draft.id}
                     className={cn(
                       "rounded-md border p-2.5",
-                      staged ? "border-green/30 bg-green/[0.03]" : "border-line bg-white/[0.015]",
+                      staged ? "border-green/30 bg-green/[0.03]" : "border-line bg-ink/[0.015]",
                     )}
                   >
                     <div className="flex items-center gap-1.5">
@@ -552,7 +552,7 @@ function IncidentConsole({ incident }: { incident: Incident }) {
               {state.wives.map((item) => {
                 const readable = item.id === wife.id;
                 return (
-                  <div key={item.id} className="flex items-center gap-2 rounded border border-line bg-white/[0.015] px-2.5 py-1.5">
+                  <div key={item.id} className="flex items-center gap-2 rounded border border-line bg-ink/[0.015] px-2.5 py-1.5">
                     <IdentityAvatar wife={item} size={18} />
                     <span className="text-[10.5px] text-ink">ns.{item.id}.v2</span>
                     <span className="ml-auto flex items-center gap-1 font-mono text-[7px] uppercase tracking-[0.05em]">
@@ -686,8 +686,8 @@ function IncidentsView() {
                     className={cn(
                       "w-full rounded-md border px-2 py-2 text-left transition-colors",
                       active
-                        ? "border-line-strong bg-white/[0.055]"
-                        : "border-transparent hover:border-line hover:bg-white/[0.025]",
+                        ? "border-line-strong bg-ink/[0.055]"
+                        : "border-transparent hover:border-line hover:bg-ink/[0.025]",
                     )}
                   >
                     <div className="flex items-center gap-1.5">

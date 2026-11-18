@@ -57,9 +57,9 @@ const NAV: NavItem[] = [
 ];
 
 const PLAN_NAME: Record<Commander["plan"], string> = {
-  monogamy: "Monogamy",
-  dual: "Dual Core",
-  triple: "Triple Threat",
+  monogamy: "Solo",
+  dual: "Duo",
+  triple: "Trio",
   enterprise: "Enterprise",
 };
 
@@ -83,7 +83,7 @@ function BadgeCount({ value, tone = "muted" }: { value: number; tone?: "muted" |
     <span
       className={cn(
         "ml-auto min-w-[17px] rounded-[4px] px-1 py-px text-center font-mono text-[9px] tabular-nums leading-[13px]",
-        tone === "danger" ? "bg-red/15 text-red" : "bg-white/[0.07] text-muted",
+        tone === "danger" ? "bg-red/15 text-red" : "bg-ink/[0.07] text-muted",
       )}
     >
       {value}
@@ -111,7 +111,7 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
             aria-current={active ? "page" : undefined}
             className={cn(
               "group relative flex items-center gap-2.5 rounded-md px-2.5 py-[7px] text-[12px] transition-colors",
-              active ? "bg-white/[0.055] text-ink" : "text-muted hover:bg-white/[0.025] hover:text-ink",
+              active ? "bg-ink/[0.055] text-ink" : "text-muted hover:bg-ink/[0.025] hover:text-ink",
             )}
           >
             {active && <span className="absolute inset-y-1.5 left-0 w-[2px] rounded-full bg-accent" />}
@@ -130,7 +130,7 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
         aria-current={pathname === "/dashboard/settings" ? "page" : undefined}
         className={cn(
           "group relative flex items-center gap-2.5 rounded-md px-2.5 py-[7px] text-[12px] transition-colors",
-          pathname === "/dashboard/settings" ? "bg-white/[0.055] text-ink" : "text-muted hover:bg-white/[0.025] hover:text-ink",
+          pathname === "/dashboard/settings" ? "bg-ink/[0.055] text-ink" : "text-muted hover:bg-ink/[0.025] hover:text-ink",
         )}
       >
         <Settings className={cn("size-[14px] shrink-0", pathname === "/dashboard/settings" ? "text-accent" : "text-faint group-hover:text-muted")} />
@@ -139,7 +139,7 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
       <Link
         href="/"
         onClick={onNavigate}
-        className="group flex items-center gap-2.5 rounded-md px-2.5 py-[7px] text-[12px] text-muted transition-colors hover:bg-white/[0.025] hover:text-ink"
+        className="group flex items-center gap-2.5 rounded-md px-2.5 py-[7px] text-[12px] text-muted transition-colors hover:bg-ink/[0.025] hover:text-ink"
       >
         <ArrowUpRight className="size-[14px] shrink-0 text-faint group-hover:text-muted" />
         Marketing site
@@ -205,7 +205,7 @@ export function DashboardChrome({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-ground">
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-[238px] flex-col border-r border-line bg-[#090a0f] px-3 py-4 lg:flex">
+      <aside className="fixed inset-y-0 left-0 z-30 hidden w-[238px] flex-col border-r border-line bg-[#ffffff] px-3 py-4 lg:flex">
         <Link href="/dashboard" className="flex items-center gap-2.5 px-2" aria-label="3Wives AI command center">
           <LogoMark />
           <span className="flex flex-col">
@@ -217,7 +217,7 @@ export function DashboardChrome({ children }: { children: React.ReactNode }) {
           </span>
         </Link>
 
-        <div className="mt-4 flex items-center gap-2 rounded-md border border-line bg-white/[0.02] px-2.5 py-2">
+        <div className="mt-4 flex items-center gap-2 rounded-md border border-line bg-ink/[0.02] px-2.5 py-2">
           <span className="flex size-6 items-center justify-center rounded-full border border-accent/25 bg-accent/[0.08] font-mono text-[9px] text-accent">
             CM
           </span>
@@ -233,7 +233,7 @@ export function DashboardChrome({ children }: { children: React.ReactNode }) {
         </div>
 
         <div className="mt-3 border-t border-line pt-3">
-          <Link href="/pricing" className="flex items-center justify-between rounded-md px-2.5 py-2 text-[11.5px] text-muted transition-colors hover:bg-white/[0.03] hover:text-ink">
+          <Link href="/pricing" className="flex items-center justify-between rounded-md px-2.5 py-2 text-[11.5px] text-muted transition-colors hover:bg-ink/[0.03] hover:text-ink">
             <span className="flex items-center gap-2">
               <Sparkles className="size-3.5 text-accent" />
               Upgrade infrastructure
@@ -256,7 +256,7 @@ export function DashboardChrome({ children }: { children: React.ReactNode }) {
                 <Menu />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[286px] bg-[#090a0f] px-3 py-4">
+            <SheetContent side="left" className="w-[286px] bg-[#ffffff] px-3 py-4">
               <SheetTitle>Dashboard navigation</SheetTitle>
               <Link href="/dashboard" onClick={() => setMenuOpen(false)} className="flex items-center gap-2.5 px-2">
                 <LogoMark />
@@ -277,7 +277,7 @@ export function DashboardChrome({ children }: { children: React.ReactNode }) {
           <button
             type="button"
             onClick={() => setPaletteOpen(true)}
-            className="ml-auto flex h-8 min-w-0 items-center gap-2 rounded-md border border-line bg-white/[0.02] px-2.5 text-[11.5px] text-faint transition-colors hover:border-line-strong hover:text-muted md:w-[260px]"
+            className="ml-auto flex h-8 min-w-0 items-center gap-2 rounded-md border border-line bg-ink/[0.02] px-2.5 text-[11.5px] text-faint transition-colors hover:border-line-strong hover:text-muted md:w-[260px]"
           >
             <Search className="size-3.5 shrink-0" />
             <span className="truncate">Search or jump to…</span>
@@ -297,7 +297,7 @@ export function DashboardChrome({ children }: { children: React.ReactNode }) {
                 <button
                   type="button"
                   aria-label={`Notifications (${badges.incidents} open)`}
-                  className="relative flex size-8 items-center justify-center rounded-md text-muted transition-colors hover:bg-white/[0.05] hover:text-ink"
+                  className="relative flex size-8 items-center justify-center rounded-md text-muted transition-colors hover:bg-ink/[0.05] hover:text-ink"
                 >
                   <Bell className="size-4" />
                   {badges.incidents > 0 && (
@@ -342,7 +342,7 @@ export function DashboardChrome({ children }: { children: React.ReactNode }) {
               <DropdownMenuTrigger asChild>
                 <button
                   type="button"
-                  className="flex items-center gap-2 rounded-md py-1 pl-1 pr-1.5 transition-colors hover:bg-white/[0.05]"
+                  className="flex items-center gap-2 rounded-md py-1 pl-1 pr-1.5 transition-colors hover:bg-ink/[0.05]"
                   aria-label="Commander menu"
                 >
                   <span className="flex size-7 items-center justify-center rounded-full border border-accent/25 bg-accent/[0.08] font-mono text-[9px] text-accent">
@@ -514,7 +514,7 @@ function CommandPalette({
                 onPointerEnter={() => setCursor(index)}
                 className={cn(
                   "flex w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-left transition-colors",
-                  index === active ? "bg-white/[0.06] text-ink" : "text-muted",
+                  index === active ? "bg-ink/[0.06] text-ink" : "text-muted",
                 )}
               >
                 <command.icon className="size-3.5 shrink-0 text-faint" />
@@ -609,7 +609,7 @@ export function StatusChip({ label, tone = "ok" }: { label: string; tone?: "ok" 
         tone === "ok" && "border-green/20 bg-green/[0.05] text-green",
         tone === "warn" && "border-amber/25 bg-amber/[0.06] text-amber",
         tone === "danger" && "border-red/30 bg-red/[0.07] text-red",
-        tone === "muted" && "border-line bg-white/[0.02] text-faint",
+        tone === "muted" && "border-line bg-ink/[0.02] text-faint",
       )}
     >
       {tone === "ok" && <Check className="size-2.5" />}

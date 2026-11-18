@@ -57,15 +57,15 @@ export function RelationshipMesh({ className }: { className?: string }) {
       initial={reduce ? false : { opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-      className={cn("relative overflow-hidden rounded-xl border border-line-strong bg-[#0a0b10]/90", className)}
+      className={cn("relative overflow-hidden rounded-xl border border-line-strong bg-[#ffffff]/90", className)}
     >
       <div className="flex h-11 items-center justify-between border-b border-line px-4">
         <div className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-accent shadow-[0_0_10px_2px_rgba(255,71,120,0.5)]" />
-          <span className="font-mono text-[9.5px] uppercase tracking-[0.16em] text-muted">Relationship Mesh</span>
+          <span className="size-1.5 rounded-full bg-accent shadow-[0_0_10px_2px_rgba(17,118,110,0.5)]" />
+          <span className="text-[11.5px] text-muted">Relationship Mesh</span>
         </div>
         <div className="flex items-center gap-3">
-          <span className="hidden items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.12em] text-faint sm:flex">
+          <span className="hidden items-center gap-1.5 text-[11.5px] text-faint sm:flex">
             <ShieldCheck className="size-3 text-green" />
             3 isolated namespaces
           </span>
@@ -80,7 +80,7 @@ export function RelationshipMesh({ className }: { className?: string }) {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(45% 45% at 50% 43%, rgba(255,71,120,0.10), transparent 70%), radial-gradient(35% 35% at 78% 30%, rgba(139,92,246,0.10), transparent 78%)",
+              "radial-gradient(45% 45% at 50% 43%, rgba(17,118,110,0.10), transparent 70%), radial-gradient(35% 35% at 78% 30%, rgba(79,70,200,0.10), transparent 78%)",
           }}
         />
 
@@ -89,9 +89,9 @@ export function RelationshipMesh({ className }: { className?: string }) {
           <svg viewBox="0 0 720 560" className="absolute inset-0 h-full w-full" fill="none" aria-hidden>
             <defs>
               <linearGradient id="mesh-line" x1="0" y1="0" x2="720" y2="560" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#ff4778" stopOpacity="0.42" />
-                <stop offset="0.5" stopColor="#a78bfa" stopOpacity="0.24" />
-                <stop offset="1" stopColor="#ff4778" stopOpacity="0.2" />
+                <stop stopColor="#0f9d8a" stopOpacity="0.42" />
+                <stop offset="0.5" stopColor="#6e56f8" stopOpacity="0.24" />
+                <stop offset="1" stopColor="#0f9d8a" stopOpacity="0.2" />
               </linearGradient>
             </defs>
             <path d="M150 155 C 220 190, 270 210, 336 244" stroke="url(#mesh-line)" strokeWidth="1" className="animated-dash" />
@@ -100,19 +100,19 @@ export function RelationshipMesh({ className }: { className?: string }) {
 
             {!reduce && (
               <>
-                <circle r="2.4" fill="#ff4778">
+                <circle r="2.4" fill="#0f9d8a">
                   <animateMotion dur="4.2s" repeatCount="indefinite" path="M150 155 C 220 190, 270 210, 336 244" begin="0s" />
                   <animate attributeName="opacity" values="0;1;1;0" dur="4.2s" repeatCount="indefinite" begin="0s" />
                 </circle>
-                <circle r="2" fill="#a78bfa">
+                <circle r="2" fill="#6e56f8">
                   <animateMotion dur="5s" repeatCount="indefinite" path="M570 178 C 505 200, 455 218, 386 244" begin="1.1s" />
                   <animate attributeName="opacity" values="0;1;1;0" dur="5s" repeatCount="indefinite" begin="1.1s" />
                 </circle>
-                <circle r="2" fill="#ff4778">
+                <circle r="2" fill="#0f9d8a">
                   <animateMotion dur="4.6s" repeatCount="indefinite" path="M360 420 C 360 380, 360 340, 360 300" begin="0.6s" />
                   <animate attributeName="opacity" values="0;1;1;0" dur="4.6s" repeatCount="indefinite" begin="0.6s" />
                 </circle>
-                <circle r="1.6" fill="#3ddc97">
+                <circle r="1.6" fill="#12a26b">
                   <animateMotion dur="6s" repeatCount="indefinite" path="M360 300 C 360 340, 360 380, 360 420" begin="2.2s" />
                   <animate attributeName="opacity" values="0;0.8;0.8;0" dur="6s" repeatCount="indefinite" begin="2.2s" />
                 </circle>
@@ -125,19 +125,19 @@ export function RelationshipMesh({ className }: { className?: string }) {
             <div className="relative flex size-[132px] items-center justify-center">
               <div
                 className="absolute inset-0 rounded-full opacity-70 blur-2xl"
-                style={{ background: "radial-gradient(circle, rgba(255,71,120,0.32), rgba(139,92,246,0.16) 55%, transparent 72%)" }}
+                style={{ background: "radial-gradient(circle, rgba(17,118,110,0.32), rgba(79,70,200,0.16) 55%, transparent 72%)" }}
               />
               <motion.div
                 animate={reduce ? undefined : { rotate: 360 }}
                 transition={{ duration: 32, ease: "linear", repeat: Infinity }}
-                className="absolute inset-0 rounded-full border border-dashed border-white/15"
+                className="absolute inset-0 rounded-full border border-dashed border-ink/15"
               />
-              <div className="absolute inset-[16px] rounded-full border border-white/[0.08]" />
+              <div className="absolute inset-[16px] rounded-full border border-ink/[0.08]" />
               <div className="absolute inset-[30px] rounded-full border border-accent/25" />
-              <div className="relative flex size-[62px] items-center justify-center rounded-full border border-white/15 bg-[#0b0c12] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+              <div className="relative flex size-[62px] items-center justify-center rounded-full border border-ink/15 bg-[#ffffff] shadow-[inset_0_1px_0_rgba(11,13,18,0.08)]">
                 <LogoMark className="size-8" animated />
               </div>
-              <span className="absolute -bottom-3 rounded-full border border-line bg-ground px-2 py-0.5 font-mono text-[8px] uppercase tracking-[0.16em] text-faint">
+              <span className="absolute -bottom-3 rounded-full border border-line bg-ground px-2 py-0.5 text-[11.5px] text-faint">
                 Core inference
               </span>
             </div>
@@ -150,12 +150,12 @@ export function RelationshipMesh({ className }: { className?: string }) {
               className="absolute w-[186px] -translate-x-1/2 -translate-y-1/2"
               style={nodePositions[index]}
             >
-              <div className="rounded-md border border-line bg-[#0c0d13]/95 p-3 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.9)]">
+              <div className="rounded-md border border-line bg-[#ffffff]/95 p-3 shadow-[0_18px_40px_-24px_rgba(15,23,42,0.16)]">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[8.5px] uppercase tracking-[0.14em] text-faint">{wife.code}</span>
+                  <span className="text-[11.5px] text-faint">{wife.code}</span>
                   <span
                     className="size-1.5 rounded-full"
-                    style={{ background: wife.status === "critical" ? "#ff3b4e" : wife.status === "attention" ? "#f5b544" : "#3ddc97" }}
+                    style={{ background: wife.status === "critical" ? "#e5383b" : wife.status === "attention" ? "#d98a00" : "#12a26b" }}
                   />
                 </div>
                 <div className="mt-2 flex items-center gap-2.5">
@@ -175,9 +175,9 @@ export function RelationshipMesh({ className }: { className?: string }) {
 
           <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-line bg-ground/70 px-2.5 py-1">
             <span className="status-dot text-green" />
-            <span className="font-mono text-[8.5px] uppercase tracking-[0.14em] text-green">All systems synchronized</span>
+            <span className="text-[11.5px] text-green">All systems synchronized</span>
           </div>
-          <div className="absolute bottom-4 right-4 font-mono text-[8.5px] uppercase tracking-[0.12em] text-faint">
+          <div className="absolute bottom-4 right-4 text-[11.5px] text-faint">
             mesh.v2.4.1
           </div>
         </div>
@@ -190,11 +190,11 @@ export function RelationshipMesh({ className }: { className?: string }) {
                 <LogoMark className="size-5" />
               </div>
               <div>
-                <p className="font-mono text-[8px] uppercase tracking-[0.14em] text-faint">Core inference</p>
+                <p className="text-[11.5px] text-faint">Core inference</p>
                 <p className="text-[12px]">All systems synchronized</p>
               </div>
             </div>
-            <span className="flex items-center gap-1.5 font-mono text-[8.5px] uppercase tracking-[0.1em] text-green">
+            <span className="flex items-center gap-1.5 text-[11.5px] text-green">
               <span className="status-dot" />
               Live
             </span>
@@ -204,16 +204,16 @@ export function RelationshipMesh({ className }: { className?: string }) {
             <div className="absolute left-[19px] top-4 bottom-4 w-px bg-gradient-to-b from-accent/40 via-violet/30 to-accent/20" />
             <div className="flex h-full flex-col justify-between gap-2">
               {wives.map((wife, index) => (
-                <div key={wife.id} className="relative flex items-center gap-3 rounded-md border border-line bg-[#0c0d13]/90 p-2.5">
+                <div key={wife.id} className="relative flex items-center gap-3 rounded-md border border-line bg-[#ffffff]/90 p-2.5">
                   <span
                     className="absolute -left-[2px] size-1.5 rounded-full"
-                    style={{ background: ["#ff8fa3", "#a78bfa", "#ff4778"][index] }}
+                    style={{ background: ["#f26b1d", "#6e56f8", "#0f9d8a"][index] }}
                   />
                   <IdentityAvatar wife={wife} size={36} />
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between gap-2">
                       <p className="text-[12px] font-medium">{wife.name}</p>
-                      <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-faint">{wife.code}</span>
+                      <span className="text-[11.5px] text-faint">{wife.code}</span>
                     </div>
                     <p className="mt-0.5 truncate text-[10px] text-muted">
                       {FEED[index].text}
@@ -225,10 +225,10 @@ export function RelationshipMesh({ className }: { className?: string }) {
             </div>
           </div>
 
-          <div className="rounded-md border border-line bg-white/[0.02] p-2.5">
+          <div className="rounded-md border border-line bg-ink/[0.02] p-2.5">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[8.5px] uppercase tracking-[0.12em] text-faint">Engine</span>
-              <span className="font-mono text-[8.5px] uppercase tracking-[0.12em] text-green">Healthy</span>
+              <span className="text-[11.5px] text-faint">Engine</span>
+              <span className="text-[11.5px] text-green">Healthy</span>
             </div>
             <p className="mt-1 text-[10.5px] leading-relaxed text-muted">
               3 contexts isolated · 2,418 vectors · 0 cross-reads
@@ -249,7 +249,7 @@ export function RelationshipMesh({ className }: { className?: string }) {
               index !== 0 && "border-l",
               index < 2 ? "border-b lg:border-b-0" : "",
               index === 2 && "lg:border-l",
-              active === index ? "bg-white/[0.03]" : "hover:bg-white/[0.02]",
+              active === index ? "bg-ink/[0.03]" : "hover:bg-ink/[0.02]",
             )}
           >
             {active === index && (
@@ -260,8 +260,8 @@ export function RelationshipMesh({ className }: { className?: string }) {
               />
             )}
             <div className="flex items-center justify-between gap-2">
-              <span className="font-mono text-[8.5px] uppercase tracking-[0.13em] text-faint">{item.code === "ENGINE" ? "CORE" : item.code}</span>
-              <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-green">{item.state}</span>
+              <span className="text-[11.5px] text-faint">{item.code === "ENGINE" ? "CORE" : item.code}</span>
+              <span className="text-[11.5px] text-green">{item.state}</span>
             </div>
             <p className="mt-1 truncate text-[11px] text-ink/90">{item.text}</p>
           </button>
@@ -279,14 +279,14 @@ export function MeshLegend() {
         { icon: ShieldCheck, label: "Zero cross-context reads" },
         { icon: Activity, label: "Live memory indexing" },
       ].map(({ icon: Icon, label }) => (
-        <span key={label} className="flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.1em] text-faint">
+        <span key={label} className="flex items-center gap-1.5 text-[11.5px] text-faint">
           <Icon className="size-3 text-muted" />
           {label}
         </span>
       ))}
       <a
         href="/engine"
-        className="ml-auto flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.1em] text-accent transition-colors hover:text-ink"
+        className="ml-auto flex items-center gap-1 text-[11.5px] text-accent transition-colors hover:text-ink"
       >
         Inspect engine
         <ArrowUpRight className="size-3" />

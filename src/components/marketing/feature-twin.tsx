@@ -58,7 +58,7 @@ export function TwinDemo() {
   };
 
   return (
-    <DemoShell label="Conversational twin" meta="PREVIEW ONLY" tone="accent" className="shadow-[0_30px_90px_-50px_rgba(255,71,120,0.4)]">
+    <DemoShell label="Conversational twin" meta="PREVIEW ONLY" tone="accent" className="shadow-[0_30px_90px_-50px_rgba(17,118,110,0.4)]">
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-3.5 py-2.5">
         <div className="flex gap-1" role="tablist" aria-label="Relationship thread">
           {data.wives.map((item) => (
@@ -70,7 +70,7 @@ export function TwinDemo() {
               className={cn(
                 "flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10.5px] transition-colors",
                 wifeId === item.id
-                  ? "border-line-strong bg-white/[0.06] text-ink"
+                  ? "border-line-strong bg-ink/[0.06] text-ink"
                   : "border-transparent text-faint hover:text-ink",
               )}
             >
@@ -80,7 +80,7 @@ export function TwinDemo() {
           ))}
         </div>
         <div className="flex items-center gap-2">
-          <span className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-faint">Voice</span>
+          <span className="text-[11.5px] text-faint">Voice</span>
           <div className="flex rounded-full border border-line p-0.5">
             {(["twin", "generic"] as const).map((value) => (
               <button
@@ -89,7 +89,7 @@ export function TwinDemo() {
                 aria-pressed={mode === value}
                 className={cn(
                   "rounded-full px-2.5 py-1 font-mono text-[8.5px] uppercase tracking-[0.1em] transition-colors",
-                  mode === value ? "bg-white/[0.08] text-ink" : "text-faint hover:text-ink",
+                  mode === value ? "bg-ink/[0.08] text-ink" : "text-faint hover:text-ink",
                 )}
               >
                 {value === "twin" ? "Your twin" : "Generic"}
@@ -105,15 +105,15 @@ export function TwinDemo() {
             <IdentityAvatar wife={wife} size={32} />
             <div className="min-w-0">
               <p className="text-[12.5px] font-medium">{wife.name}</p>
-              <p className="font-mono text-[8.5px] uppercase tracking-[0.1em] text-green">Drafting in your voice</p>
+              <p className="text-[11.5px] text-green">Drafting in your voice</p>
             </div>
-            <span className="ml-auto font-mono text-[8.5px] uppercase tracking-[0.1em] text-faint">20:16</span>
+            <span className="ml-auto text-[11.5px] text-faint">20:16</span>
           </div>
 
           <div className="flex min-h-[240px] flex-col gap-3 p-4">
             <div className="flex items-start gap-2">
               <IdentityAvatar wife={wife} size={22} />
-              <div className="max-w-[290px] rounded-lg rounded-tl-sm border border-line bg-white/[0.035] px-3 py-2 text-[12px] leading-relaxed text-ink/90">
+              <div className="max-w-[290px] rounded-lg rounded-tl-sm border border-line bg-ink/[0.035] px-3 py-2 text-[12px] leading-relaxed text-ink/90">
                 {INCOMING[wifeId]}
               </div>
             </div>
@@ -121,7 +121,7 @@ export function TwinDemo() {
             <div className="mt-1 flex justify-end">
               <div className="w-full max-w-[330px] rounded-lg rounded-tr-sm border border-accent/25 bg-accent/[0.055] p-3">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-accent">
+                  <span className="text-[11.5px] text-accent">
                     {mode === "twin" ? "Your twin · draft" : "Generic model"}
                   </span>
                   <span className="font-mono text-[8px] tabular-nums text-faint">{confidence}% confidence</span>
@@ -142,15 +142,15 @@ export function TwinDemo() {
                     {thinking ? "Composing…" : draft}
                   </motion.p>
                 </AnimatePresence>
-                <div className="mt-2.5 flex items-center gap-2 border-t border-white/[0.06] pt-2">
-                  <span className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-[0.1em] text-faint">
+                <div className="mt-2.5 flex items-center gap-2 border-t border-ink/[0.06] pt-2">
+                  <span className="flex items-center gap-1 text-[11.5px] text-faint">
                     <Sparkles className="size-2.5 text-accent" />
                     {styleMatch}% style
                   </span>
-                  <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-faint">
+                  <span className="text-[11.5px] text-faint">
                     {generated.latencyMs}ms
                   </span>
-                  <span className="ml-auto flex items-center gap-1 font-mono text-[8px] uppercase tracking-[0.1em] text-green">
+                  <span className="ml-auto flex items-center gap-1 text-[11.5px] text-green">
                     <Check className="size-2.5" />
                     Safety pass
                   </span>
@@ -169,12 +169,12 @@ export function TwinDemo() {
             </button>
             <button
               onClick={() => toast.success("Draft staged in the demo. No message is sent.")}
-              className="flex h-8 items-center gap-1.5 rounded-md border border-accent/30 bg-accent/10 px-2.5 text-[11px] text-[#ff9ab2] transition-colors hover:bg-accent/15"
+              className="flex h-8 items-center gap-1.5 rounded-md border border-accent/30 bg-accent/10 px-2.5 text-[11px] text-accent transition-colors hover:bg-accent/15"
             >
               <Send className="size-3" />
               Stage draft
             </button>
-            <span className="ml-auto hidden font-mono text-[8px] uppercase tracking-[0.1em] text-faint sm:block">
+            <span className="ml-auto hidden text-[11.5px] text-faint sm:block">
               No external send
             </span>
           </div>
@@ -190,11 +190,11 @@ export function TwinDemo() {
               { label: "Callbacks", value: mode === "twin" ? 91 : 9 },
             ].map((item) => (
               <div key={item.label}>
-                <div className="flex items-center justify-between font-mono text-[8.5px] uppercase tracking-[0.08em]">
+                <div className="flex items-center justify-between text-[11.5px]">
                   <span className="text-faint">{item.label}</span>
                   <span className="tabular-nums text-muted">{item.value}</span>
                 </div>
-                <div className="mt-1 h-[2px] w-full bg-white/[0.06]">
+                <div className="mt-1 h-[2px] w-full bg-ink/[0.06]">
                   <div
                     className="h-full bg-accent transition-all duration-700"
                     style={{ width: `${item.value}%` }}
@@ -207,9 +207,9 @@ export function TwinDemo() {
           <p className="mono-label mt-5">Memory refs</p>
           <div className="mt-2 flex flex-col gap-1.5">
             {(mode === "twin" ? generated.memories : []).slice(0, 3).map((memory) => (
-              <div key={memory.id} className="rounded border border-line bg-white/[0.02] px-2 py-1.5">
+              <div key={memory.id} className="rounded border border-line bg-ink/[0.02] px-2 py-1.5">
                 <p className="text-[9.5px] leading-snug text-ink/80">{memory.title}</p>
-                <p className="mt-0.5 font-mono text-[7.5px] uppercase tracking-[0.1em] text-faint">
+                <p className="mt-0.5 font-mono text-[7.5px] text-faint">
                   {memory.kind} · {memory.namespace}
                 </p>
               </div>
@@ -222,7 +222,7 @@ export function TwinDemo() {
           </div>
 
           <div className="mt-4 rounded-md border border-green/20 bg-green/[0.04] p-2">
-            <p className="font-mono text-[7.5px] uppercase tracking-[0.12em] text-green">Isolation</p>
+            <p className="font-mono text-[7.5px] text-green">Isolation</p>
             <p className="mt-1 text-[9.5px] leading-relaxed text-muted">
               Only ns.{wife.id}.v2 was read. 0 references crossed.
             </p>

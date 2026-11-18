@@ -26,12 +26,12 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/controls";
 
 const STATUS_META: Record<GiftStatus, { label: string; className: string }> = {
-  idea: { label: "Idea", className: "border-line bg-white/[0.02] text-faint" },
+  idea: { label: "Idea", className: "border-line bg-ink/[0.02] text-faint" },
   approved: { label: "Approved", className: "border-amber/30 bg-amber/[0.07] text-amber" },
   purchased: { label: "Purchased", className: "border-green/25 bg-green/[0.07] text-green" },
 };
 
-const MATCH_COLOR = (match: number) => (match >= 93 ? "#3ddc97" : match >= 85 ? "#a78bfa" : "#f5b544");
+const MATCH_COLOR = (match: number) => (match >= 93 ? "#12a26b" : match >= 85 ? "#6e56f8" : "#d98a00");
 
 function GiftCard({
   gift,
@@ -48,7 +48,7 @@ function GiftCard({
   const exceeded = gift.status === "approved" && committed > envelope;
 
   return (
-    <article className="rounded-md border border-line bg-white/[0.015] p-2.5 transition-colors hover:border-line-strong">
+    <article className="rounded-md border border-line bg-ink/[0.015] p-2.5 transition-colors hover:border-line-strong">
       <div className="flex items-start justify-between gap-2">
         <div className="flex flex-wrap items-center gap-1">
           <span className="rounded border border-line px-1.5 py-px font-mono text-[7px] uppercase tracking-[0.07em] text-faint">
@@ -65,7 +65,7 @@ function GiftCard({
       <p className="mt-1 line-clamp-3 text-[9.5px] leading-relaxed text-faint">{gift.rationale}</p>
 
       <div className="mt-2 flex items-center gap-2">
-        <div className="h-[3px] flex-1 overflow-hidden rounded-full bg-white/[0.06]">
+        <div className="h-[3px] flex-1 overflow-hidden rounded-full bg-ink/[0.06]">
           <div
             className="h-full rounded-full transition-all duration-700"
             style={{ width: `${gift.match}%`, background: MATCH_COLOR(gift.match) }}
@@ -227,7 +227,7 @@ export default function GiftsPage() {
             <span
               className={cn(
                 "flex size-7 shrink-0 items-center justify-center rounded-md border",
-                item.danger ? "border-red/25 bg-red/[0.07]" : "border-line bg-white/[0.02]",
+                item.danger ? "border-red/25 bg-red/[0.07]" : "border-line bg-ink/[0.02]",
               )}
             >
               <item.icon className={cn("size-3.5", item.danger ? "text-red" : "text-faint")} />
@@ -282,7 +282,7 @@ export default function GiftsPage() {
           </div>
         </div>
 
-        <div className="mt-3 flex flex-wrap items-center gap-2 rounded border border-line bg-white/[0.015] p-2.5">
+        <div className="mt-3 flex flex-wrap items-center gap-2 rounded border border-line bg-ink/[0.015] p-2.5">
           <span className="flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.06em] text-muted">
             <Sparkles className="size-3 text-violet" />
             {suggestions.length} of {state.gifts.filter((gift) => gift.status === "idea").length} ideas fit ·{" "}
@@ -312,7 +312,7 @@ export default function GiftsPage() {
                 aria-pressed={filter === value}
                 className={cn(
                   "rounded px-2 py-1 font-mono text-[8px] uppercase tracking-[0.06em] transition-colors",
-                  filter === value ? "bg-white/[0.08] text-ink" : "text-faint hover:text-muted",
+                  filter === value ? "bg-ink/[0.08] text-ink" : "text-faint hover:text-muted",
                 )}
               >
                 {value === "all" ? "All" : STATUS_META[value].label}
@@ -386,9 +386,9 @@ export default function GiftsPage() {
           <GroupedBars
             labels={state.giftHistory.map((point) => point.month)}
             series={[
-              { key: "sophia", label: "Sophia", color: "#ff8fa3", values: state.giftHistory.map((point) => point.sophia) },
-              { key: "olivia", label: "Olivia", color: "#a78bfa", values: state.giftHistory.map((point) => point.olivia) },
-              { key: "isabella", label: "Isabella", color: "#ff4778", values: state.giftHistory.map((point) => point.isabella) },
+              { key: "sophia", label: "Sophia", color: "#f26b1d", values: state.giftHistory.map((point) => point.sophia) },
+              { key: "olivia", label: "Olivia", color: "#6e56f8", values: state.giftHistory.map((point) => point.olivia) },
+              { key: "isabella", label: "Isabella", color: "#0f9d8a", values: state.giftHistory.map((point) => point.isabella) },
             ]}
           />
           <div className="mt-3 grid grid-cols-4 gap-px overflow-hidden rounded border border-line bg-line">
@@ -398,7 +398,7 @@ export default function GiftsPage() {
               { label: "Olivia", value: formatCurrency(historyTotals.olivia) },
               { label: "Isabella", value: formatCurrency(historyTotals.isabella) },
             ].map((item) => (
-              <div key={item.label} className="bg-[#0b0c12] px-2 py-1.5">
+              <div key={item.label} className="bg-[#ffffff] px-2 py-1.5">
                 <p className="font-mono text-[7px] uppercase tracking-[0.06em] text-faint">{item.label}</p>
                 <p className="mt-0.5 font-mono text-[9.5px] tabular-nums text-ink">{item.value}</p>
               </div>

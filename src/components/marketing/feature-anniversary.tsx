@@ -45,7 +45,7 @@ export function AnniversaryDemo() {
         <div className="border-b border-line p-3.5 md:border-b-0 md:border-r">
           <div className="flex items-center justify-between">
             <p className="mono-label">Upcoming</p>
-            <span className="font-mono text-[8px] uppercase tracking-[0.1em] text-green">synced</span>
+            <span className="text-[11.5px] text-green">synced</span>
           </div>
           <div className="mt-3 space-y-1.5">
             {data.wives.map((item) => {
@@ -61,13 +61,13 @@ export function AnniversaryDemo() {
                   aria-pressed={active}
                   className={cn(
                     "flex w-full items-center gap-2.5 rounded-md border p-2 text-left transition-colors",
-                    active ? "border-line-strong bg-white/[0.05]" : "border-transparent hover:bg-white/[0.025]",
+                    active ? "border-line-strong bg-ink/[0.05]" : "border-transparent hover:bg-ink/[0.025]",
                   )}
                 >
                   <IdentityAvatar wife={item} size={28} />
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-[11.5px] font-medium">{item.nextDate.label}</p>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.08em] text-faint">
+                    <p className="text-[11.5px] text-faint">
                       {format(new Date(item.nextDate.date), "MMM d")} · {item.name}
                     </p>
                   </div>
@@ -85,7 +85,7 @@ export function AnniversaryDemo() {
           </div>
           <div className="mt-3 flex items-center gap-1.5 rounded border border-dashed border-line px-2 py-1.5">
             <CalendarHeart className="size-3 text-faint" />
-            <p className="font-mono text-[7.5px] uppercase leading-relaxed tracking-[0.08em] text-faint">
+            <p className="font-mono text-[7.5px] leading-relaxed text-faint">
               reminders armed at T-14 / T-7 / T-1
             </p>
           </div>
@@ -93,7 +93,7 @@ export function AnniversaryDemo() {
 
         <div className="p-3.5">
           <div className="flex items-center justify-between">
-            <p className="font-mono text-[8px] uppercase tracking-[0.12em] text-faint">{wife.code} · {wife.nextDate.label}</p>
+            <p className="text-[11.5px] text-faint">{wife.code} · {wife.nextDate.label}</p>
             <span className="rounded-full border border-accent/25 bg-accent/[0.07] px-1.5 py-0.5 font-mono text-[8px] tabular-nums text-accent">
               {days} days
             </span>
@@ -102,7 +102,7 @@ export function AnniversaryDemo() {
           <div className="mt-3 rounded-md border border-line bg-ground/60 p-2.5">
             <div className="flex items-center gap-1.5">
               <Gift className="size-3 text-accent" />
-              <p className="font-mono text-[7.5px] uppercase tracking-[0.12em] text-faint">Recommended</p>
+              <p className="font-mono text-[7.5px] text-faint">Recommended</p>
               <span className="ml-auto font-mono text-[8px] text-green">{gift?.match ?? 0}% match</span>
             </div>
             <p className="mt-1.5 text-[11.5px] text-ink">{gift?.name}</p>
@@ -112,15 +112,15 @@ export function AnniversaryDemo() {
             </p>
           </div>
 
-          <div className="mt-2.5 rounded-md border border-line bg-white/[0.02] p-2.5">
+          <div className="mt-2.5 rounded-md border border-line bg-ink/[0.02] p-2.5">
             <div className="flex items-center justify-between">
-              <span className="flex items-center gap-1.5 font-mono text-[7.5px] uppercase tracking-[0.12em] text-faint">
+              <span className="flex items-center gap-1.5 font-mono text-[7.5px] text-faint">
                 <Sparkles className="size-2.5 text-violet" />
                 Drafted note
               </span>
               <button
                 onClick={() => setVariant((value) => (value + 1) % 3)}
-                className="flex items-center gap-1 font-mono text-[8px] uppercase tracking-[0.08em] text-faint transition-colors hover:text-ink"
+                className="flex items-center gap-1 text-[11.5px] text-faint transition-colors hover:text-ink"
               >
                 <RefreshCw className="size-2.5" />
                 Rewrite

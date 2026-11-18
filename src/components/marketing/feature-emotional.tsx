@@ -10,9 +10,9 @@ import { cn } from "@/lib/utils";
 type Mood = "guarded" | "neutral" | "open";
 
 const WIVES: { id: WifeId; name: string; color: string }[] = [
-  { id: "sophia", name: "Sophia", color: "#ff8fa3" },
-  { id: "olivia", name: "Olivia", color: "#a78bfa" },
-  { id: "isabella", name: "Isabella", color: "#ff4778" },
+  { id: "sophia", name: "Sophia", color: "#f26b1d" },
+  { id: "olivia", name: "Olivia", color: "#6e56f8" },
+  { id: "isabella", name: "Isabella", color: "#0f9d8a" },
 ];
 
 const VECTORS: Record<WifeId, Record<Mood, { warmth: number; patience: number; openness: number }>> = {
@@ -98,7 +98,7 @@ export function EmotionalDemo() {
               className={cn(
                 "flex flex-1 items-center justify-center gap-1.5 rounded border py-1.5 text-[10px] transition-colors",
                 wifeId === item.id
-                  ? "border-line-strong bg-white/[0.05] text-ink"
+                  ? "border-line-strong bg-ink/[0.05] text-ink"
                   : "border-transparent text-faint hover:text-ink",
               )}
             >
@@ -109,7 +109,7 @@ export function EmotionalDemo() {
         </div>
 
         <div className="mt-3 flex items-center justify-between">
-          <span className="font-mono text-[7.5px] uppercase tracking-[0.12em] text-faint">Simulated state</span>
+          <span className="font-mono text-[7.5px] text-faint">Simulated state</span>
           <div className="flex gap-1">
             {(["guarded", "neutral", "open"] as Mood[]).map((item) => (
               <button
@@ -118,7 +118,7 @@ export function EmotionalDemo() {
                 aria-pressed={mood === item}
                 className={cn(
                   "rounded-full px-1.5 py-0.5 font-mono text-[7.5px] uppercase tracking-[0.08em] transition-colors",
-                  mood === item ? "bg-white/[0.08] text-ink" : "text-faint hover:text-muted",
+                  mood === item ? "bg-ink/[0.08] text-ink" : "text-faint hover:text-muted",
                 )}
               >
                 {item}
@@ -134,16 +134,16 @@ export function EmotionalDemo() {
             { label: "Openness", value: vector.openness },
           ].map((bar) => (
             <div key={bar.label}>
-              <div className="flex items-center justify-between font-mono text-[8px] uppercase tracking-[0.08em]">
+              <div className="flex items-center justify-between text-[11.5px]">
                 <span className="text-faint">{bar.label}</span>
                 <span className="tabular-nums text-muted">{bar.value}</span>
               </div>
-              <div className="mt-1 h-[3px] w-full overflow-hidden rounded-full bg-white/[0.06]">
+              <div className="mt-1 h-[3px] w-full overflow-hidden rounded-full bg-ink/[0.06]">
                 <motion.div
                   animate={{ width: `${bar.value}%` }}
                   transition={reduce ? { duration: 0 } : { duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="h-full rounded-full"
-                  style={{ background: bar.value < 40 ? "#ff3b4e" : bar.value < 70 ? "#f5b544" : "#3ddc97" }}
+                  style={{ background: bar.value < 40 ? "#e5383b" : bar.value < 70 ? "#d98a00" : "#12a26b" }}
                 />
               </div>
             </div>
@@ -153,7 +153,7 @@ export function EmotionalDemo() {
         <div className="mt-3 rounded-md border border-line bg-ground/60 p-2.5">
           <div className="flex items-center gap-1.5">
             <Brain className="size-3 text-violet" />
-            <p className="font-mono text-[7.5px] uppercase tracking-[0.12em] text-faint">Recommended approach</p>
+            <p className="font-mono text-[7.5px] text-faint">Recommended approach</p>
           </div>
           <p className="mt-1.5 text-[10.5px] leading-[1.6] text-ink/85">{advice.do}</p>
           <p className="mt-1.5 flex items-start gap-1.5 text-[9.5px] leading-snug text-red/80">
@@ -162,7 +162,7 @@ export function EmotionalDemo() {
           </p>
         </div>
 
-        <div className="mt-2.5 flex items-center justify-between border-t border-line pt-2 font-mono text-[7.5px] uppercase tracking-[0.08em] text-faint">
+        <div className="mt-2.5 flex items-center justify-between border-t border-line pt-2 font-mono text-[7.5px] text-faint">
           <span>namespace ns.{wife.id}.v2</span>
           <span className="text-green">no bleed</span>
         </div>
